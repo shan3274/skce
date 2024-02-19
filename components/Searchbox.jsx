@@ -75,7 +75,7 @@ const Searchbox = ({ scrollLength, currHeight, setSearchs }) => {
           animate={{ y: -100 }}
           transition={{ duration: 0.2 }}
           exit={{ y: 100 }}
-          className="w-[50vw] right-0 min-h-[25vh]   bg-white/30 backdrop-blur-lg items-center  flex flex-col pt-5 rounded-2xl pb-5 duration-300 relative top-[100px]"
+          className="lg:w-[50vw] w-[90vw] right-0 min-h-[25vh]   bg-white/30 backdrop-blur-lg items-center  flex flex-col pt-5 rounded-2xl pb-5 duration-300 relative top-[100px]"
         >
           <button
             className="absolute right-5 top-2"

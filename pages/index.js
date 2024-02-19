@@ -19,6 +19,8 @@ import Nheader from "@/components/Nheader";
 import Chairman from "@/components/Chairman";
 import Nloader from "@/components/Nloader";
 import Chatbox from "@/components/Chatbox";
+import { db } from "@/utils/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const index = () => {
   const [loader, setLoader] = useState(true);
@@ -50,7 +52,7 @@ const index = () => {
         <Nheader scrollLength={scrollLength} currHeight={currHeight} />
         <Hero scrollLength={scrollLength} currHeight={currHeight} />
 
-        <div className="fixed top-0 w-full h-screen bg-[#3e3e3e] flex items-center justify-center">
+        <div className="fixed top-0 w-full h-screen bg-[#ffffff] flex items-center justify-center">
           <h1> hello</h1>
         </div>
         <Chairman scrollLength={scrollLength} currHeight={currHeight} />

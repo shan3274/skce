@@ -163,7 +163,7 @@ const Facilities = ({ scrollLength, currHeight }) => {
                 </p>
                 <p
                   className={
-                    !box1
+                    !box3
                       ? "absolute z-[1] w-full h-[15%] bg-black/80 text-white bottom-0 p-5 opacity-100 duration-300"
                       : "absolute z-[1] w-full h-[15%] bg-black/80 text-white bottom-0 p-5 opacity-0 duration-300"
                   }
