@@ -33,17 +33,17 @@ const Parallaxpage1 = ({ scrollLength, currHeight }) => {
           <motion.div
             animate={{ scale: 1.05 }}
             transition={{ duration: 1 }}
-            className="bg-blue-500 w-[70%] lg:w-[40%]  absolute lg:top-0 top-[20vh] lg:relative lg:left-0 left-10 rounded-md overflow-hidden"
+            className="bg-blue-500 w-[70%] lg:w-[40%] absolute lg:top-0 top-[20vh] lg:relative lg:left-0 left-10 rounded-md overflow-hidden"
           >
             <Image
               src={chairman}
-              className="rounded-md  hover:scale-105 duration-300  "
+              className="rounded-md hover:scale-105 duration-300"
             />
           </motion.div>
         )}
         {scrollLength > currHeight / 3 && (
           <motion.div
-            className="bg-white/30 backdrop-blur-md rounded-lg  w-[70%] lg:w-[40%] h-[60%] absolute lg:top-[-22vh] top-[20vh] lg:relative lg:right-0 right-10 p-10 text-white"
+            className="bg-white/30 backdrop-blur-md rounded-lg w-[70%] lg:w-[40%] h-[60%] absolute lg:top-[-22vh] top-[20vh] lg:relative lg:right-0 right-10 p-10 text-white"
             style={{ y: first }}
           >
             <motion.p

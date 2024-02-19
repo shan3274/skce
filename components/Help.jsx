@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 const Help = ({ scrollLength, currHeight }) => {
   return (
-    <div className="w-full h-screen lg:h-[60vh] lg:flex items-center justify-center bg-[#F6F5F3] z-[1]">
+    <div className="w-full h-screen lg:h-[60vh] flex items-center justify-center bg-[#F6F5F3] z-[1] relative">
       {scrollLength > currHeight + currHeight && (
-        <div className="lg:w-[80%] w-[90%] h-[60%] border bg-white flex flex-col items-center justify-evenly">
+        <div className="lg:w-[80%] w-[90%] h-[60%] border bg-white flex flex-col items-center justify-evenly rounded-[30px] drop-shadow-lg duration-300 hover:scale-[1.05]">
           <motion.h1
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

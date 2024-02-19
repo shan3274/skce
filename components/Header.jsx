@@ -36,7 +36,7 @@ const Header = () => {
         className={
           scrollLength > 10
             ? `w-[100vw] h-[5rem] flex justify-between  items-center bg-[#ffffff]  text-black text-[1vw] duration-500 px-[5vw]  `
-            : `w-[100vw] h-[5rem] flex justify-between  items-center bg-[#282828]  text-white text-[1vw] duration-500 px-[5vw]  `
+            : `w-[100vw] h-[5rem] flex justify-between  items-center bg-[#225872]  text-white text-[1vw] duration-500 px-[5vw]  `
         }
       >
         <div
@@ -56,7 +56,7 @@ const Header = () => {
         </div>
         <ul className="lg:flex  hidden gap-2 text-[15px]">
           <li
-            className="relative  hover:bg-black hover:text-white px-[2vw] py-[2vh] duration-300 rounded-lg hover:scale-[1.05]"
+            className="relative  hover:bg-black hover:text-white px-[2vw] py-[2vh] duration-300 rounded-lg hover:scale-[1.05] z-[10]"
             onMouseEnter={() => setAbout(true)}
             onMouseLeave={() => setAbout(false)}
           >
