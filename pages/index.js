@@ -21,6 +21,7 @@ import Nloader from "@/components/Nloader";
 import Chatbox from "@/components/Chatbox";
 import { db } from "@/utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import Stackitems from "@/components/Stackitems";
 
 const index = () => {
   const [loader, setLoader] = useState(true);
@@ -43,7 +44,7 @@ const index = () => {
   return loader ? (
     <AnimatePresence>
       <motion.div key="loader">
-        <Loader setLoading={setLoader} />
+        <Nloader setLoading={setLoader} />
       </motion.div>
     </AnimatePresence>
   ) : (
@@ -55,6 +56,7 @@ const index = () => {
         <div className="fixed top-0 w-full h-screen bg-[#ffffff] flex items-center justify-center">
           <h1> hello</h1>
         </div>
+
         <Chairman scrollLength={scrollLength} currHeight={currHeight} />
         <Facilities scrollLength={scrollLength} currHeight={currHeight} />
         <Help scrollLength={scrollLength} currHeight={currHeight} />
@@ -65,32 +67,3 @@ const index = () => {
   );
 };
 export default index;
-
-// import Nloader from "@/components/Nloader";
-// import React, { useState } from "react";
-// import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
-// import main_image from "@/public/images/image-4.jpg";
-// import Image from "next/image";
-
-// const index = () => {
-//   const [loader, setLoader] = useState(true);
-//   return (
-//     <LayoutGroup id="main">
-//       <AnimatePresence>
-//         {loader && (
-//           <motion.div className="" key="loader">
-//             <Nloader setLoader={setLoader} />
-//           </motion.div>
-//         )}
-
-//         {!loader && (
-//           <motion.div className="transition-image final" layoutId="main">
-//             <Image src={main_image} width={600} />
-//           </motion.div>
-//         )}
-//       </AnimatePresence>
-//     </LayoutGroup>
-//   );
-// };
-
-// export default index;

@@ -19,24 +19,30 @@ const Chairman = () => {
   return (
     <div
       id="chairmain"
-      className="relative w-full h-screen flex items-center justify-center mt-[25vh] drop-shadow-md "
+      className="relative w-full h-screen flex items-center justify-center mt-[25vh] drop-shadow-md overflow-hidden"
     >
-      <div className="chair absolute w-[30%]  h-[30%]  rounded-lg z-[2] top-[18vh] p-10 right-[15vw] font-titlefont">
+      <div className="chair absolute w-[30%]  h-[30%]  rounded-lg z-[2] top-[22vh] p-10 right-[13vw] font-titlefont">
         <h1 className="text-[100px] text-white font-[700] drop-shadow-2xl font-titlefont">
           CHAIRMAN
         </h1>
         <h1 className="text-[100px] text-[#CFFA1E] font-[700] font-titlefont">
           POSITION
         </h1>
+        <p className="text-white w-[100%]">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam non
+          ducimus cupiditate est nam aliquam eligendi commodi consequatur.
+          Quidem numquam praesentium eius perferendis? Doloremque necessitatibus
+          tempore cum aspernatur tenetur harum?
+        </p>
       </div>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
-        modules={[]}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
         className="w-full h-screen   overflow-hidden bg-[#212121] "
       >
         <SwiperSlide>
@@ -52,21 +58,23 @@ const Chairman = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className={`w-full h-full overflow-hidden flex items-center justify-center`}
+            className={`w-full h-full overflow-hidden flex items-center justify-start pl-[15vw] relative`}
           >
+            <div className="absolute h-screen w-[1px] bg-white left-[5vw] side-line"></div>
             <Image
-              src={priciple}
-              className="w-[50%] rounded-lg drop-shadow-md  hover:scale-[1.05] duration-500"
+              src={privellor}
+              className="w-[50%] rounded-lg drop-shadow-md  hover:scale-[1.05] duration-500 img-round"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className={`w-full h-full overflow-hidden flex items-center justify-center`}
+            className={`w-full h-full overflow-hidden flex items-center justify-start pl-[15vw] relative`}
           >
+            <div className="absolute h-screen w-[1px] bg-white left-[5vw] side-line"></div>
             <Image
-              src={privellor}
-              className="w-[50%] rounded-lg drop-shadow-md  hover:scale-[1.05] duration-500"
+              src={priciple}
+              className="w-[50%] rounded-lg drop-shadow-md  hover:scale-[1.05] duration-500 img-round"
             />
           </div>
         </SwiperSlide>

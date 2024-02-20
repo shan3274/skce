@@ -1,188 +1,68 @@
-import Image from "next/image";
-import React, { useEffect } from "react";
-import { motion, LayoutGroup } from "framer-motion";
-import img1 from "@/public/images/image-1.jpg";
-import img2 from "@/public/images/image-2.jpg";
-import img3 from "@/public/images/image-3.jpg";
-import img4 from "@/public/images/image-4.jpg";
-import main_image from "@/public/images/image-4.jpg";
+import React, { useState, useCallback, useRef, useEffect } from "react";
+import { useTransition, animated } from "@react-spring/web";
 
-const container = {
-  show: {
-    transition: {
-      staggerChildren: 0.35,
-    },
-  },
-};
+import styles from "../styles/styles.module.css";
 
-const item = {
-  hidden: {
-    opacity: 0,
-    y: 200,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      ease: "easeInOut",
-      duration: 1.6,
+export default function App({ setLoading }) {
+  const ref = useRef([]);
+  const [items, set] = useState([]);
+  const transitions = useTransition(items, {
+    from: {
+      opacity: 0,
+      height: 0,
+      innerHeight: 0,
+      transform: "perspective(600px) rotateX(0deg)",
+      color: "#8fa5b6",
     },
-  },
-  exit: {
-    opacity: 0,
-    y: -200,
-    transition: {
-      ease: "easeInOut",
-      duration: 0.8,
-    },
-  },
-};
+    enter: [
+      { opacity: 1, height: 80, innerHeight: 80 },
+      { transform: "perspective(600px) rotateX(180deg)", color: "#28d79f" },
+      { transform: "perspective(600px) rotateX(0deg)" },
+    ],
+    leave: [
+      { color: "#c23369" },
+      { innerHeight: 0 },
+      { opacity: 0, height: 0 },
+    ],
+    update: { color: "#28b4d7" },
+  });
 
-const itemMain = {
-  hidden: { opacity: 0, y: 200 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      ease: "easeInOut",
-      duration: 1.6,
-    },
-  },
-};
+  const reset = useCallback(() => {
+    ref.current.forEach(clearTimeout);
+    ref.current = [];
+    set([]);
+    ref.current.push(
+      setTimeout(() => set(["Apples", "Oranges", "Kiwis"]), 100)
+    );
+    ref.current.push(setTimeout(() => set(["Apples", "Kiwis"]), 2000));
+    ref.current.push(
+      setTimeout(() => {
+        set(["Apples", "Bananas", "Kiwis"]);
+        setLoading(false);
+      }, 4000)
+    );
+  }, []);
 
-const Nloader = ({ setLoading }) => {
+  useEffect(() => {
+    reset();
+    return () => ref.current.forEach(clearTimeout);
+  }, []);
+
   return (
-    <LayoutGroup id="loader">
-      {" "}
-      <motion.div className="loader">
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          exit="exit"
-          className="loader-inner"
-          onAnimationComplete={() => setLoading(false)}
-        >
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 200,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              ease: "easeInOut",
-              duration: 1.6,
-            }}
-            exit={{
-              opacity: 0,
-              y: -200,
-              transition: {
-                ease: "easeInOut",
-                duration: 0.8,
-              },
-            }}
-            className={`image-block image-1`}
+    <div className={styles.container}>
+      <div className={styles.main}>
+        {transitions(({ innerHeight, ...rest }, item) => (
+          <animated.div
+            className={styles.transitionsItem}
+            style={rest}
+            onClick={reset}
           >
-            <Image src={img1} width={300} />;
-          </motion.div>
-          <motion.div
-            className={`image-block  absolute left-[30vw] top-[20vh] `}
-            layoutId="main-image-1"
-            variants={itemMain}
-            exit={{
-              scale: 6,
-              x: 100,
-              y: 100,
-            }}
-            transition={{ duration: 1 }}
-          >
-            <Image src={main_image} width={300} layoutId="main-image-1" />;
-          </motion.div>
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 200,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              ease: "easeInOut",
-              duration: 1.6,
-            }}
-            exit={{
-              opacity: 0,
-              y: -200,
-              transition: {
-                ease: "easeInOut",
-                duration: 0.8,
-              },
-            }}
-            variants={item}
-            className={`image-block image-2`}
-          >
-            <Image src={img2} width={300} />;
-          </motion.div>
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 200,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              ease: "easeInOut",
-              duration: 1.6,
-            }}
-            exit={{
-              opacity: 0,
-              y: -200,
-              transition: {
-                ease: "easeInOut",
-                duration: 0.8,
-              },
-            }}
-            variants={item}
-            className={`image-block image-3`}
-          >
-            <Image src={img3} width={300} />;
-          </motion.div>
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 200,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              ease: "easeInOut",
-              duration: 1.6,
-            }}
-            exit={{
-              opacity: 0,
-              y: -200,
-              transition: {
-                ease: "easeInOut",
-                duration: 0.8,
-              },
-            }}
-            variants={item}
-            className={`image-block image-4`}
-          >
-            <Image src={img4} width={300} />;
-          </motion.div>
-        </motion.div>
-      </motion.div>
-    </LayoutGroup>
+            <animated.div style={{ overflow: "hidden", height: innerHeight }}>
+              {item}
+            </animated.div>
+          </animated.div>
+        ))}
+      </div>
+    </div>
   );
-};
-
-export default Nloader;
+}
