@@ -3,20 +3,13 @@ import Nheader from "@/components/Nheader";
 import React, { useEffect, useState, useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import imgdata from "@/utils/imgdata";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination, Parallax } from "swiper/modules";
-
-import useMeasure from "react-use-measure";
-import { useTransition, a } from "@react-spring/web";
-import shuffle from "lodash.shuffle";
-
-import useMedia from "../../utils/useMedia";
-import data from "../../utils/imgdata";
-
-import styles from "../../styles/parallaxswiper.module.css";
+import Imagemodal from "@/components/Imagemodal";
 
 const index = () => {
   const [scrollLength, setScrollLength] = useState(0);
@@ -33,6 +26,95 @@ const index = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollLength]);
+
+  const datas = [
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-65-1.jpg",
+      name: "this is img one",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-64.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-29.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-46.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-66.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-52.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-65-1.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-64.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-29.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-46.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-66.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+    {
+      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-52.jpg",
+      name: "this is img two",
+      description: "this is dsecription",
+    },
+  ];
+  const [img1, setImg1] = useState(false);
+  const [img2, setImg2] = useState(false);
+  const [img3, setImg3] = useState(false);
+  const [img4, setImg4] = useState(false);
+  const [img5, setImg5] = useState(true);
+  const [img6, setImg6] = useState(false);
+  const [img7, setImg7] = useState(false);
+  const [img8, setImg8] = useState(false);
+  const [img9, setImg9] = useState(false);
+
+  const [isOpen, setIsopen] = useState(false);
+  const [index, setIndex] = useState();
+
+  const mouseEnter = (setState) => {
+    setImg1(false);
+    setImg2(false);
+    setImg3(false);
+    setImg4(false);
+    setImg5(false);
+    setImg6(false);
+    setImg7(false);
+    setImg8(false);
+    setImg9(false);
+    setState(true);
+  };
+
   return (
     <div className="bg-[#383838]">
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
@@ -231,77 +313,168 @@ const index = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="w-full h-[70vh] flex items-center justify-center relative top-10">
-        <div className="w-[60%] h-full ">
-          <Masonry />
+      <div className="w-full h-[60vh] flex items-center justify-center relative">
+        <div className="w-[80%] h-full flex items-center justify-center gap-5 p-20">
+          <div
+            onMouseEnter={() => {
+              mouseEnter(setImg1);
+            }}
+            onClick={() => {
+              setIsopen(true);
+              setIndex(0);
+            }}
+            className={
+              img1
+                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md `
+                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+            }
+            style={{
+              backgroundImage: `url(${datas[0].img})`,
+            }}
+          ></div>
+          <div
+            onMouseEnter={() => {
+              mouseEnter(setImg2);
+            }}
+            onClick={() => {
+              setIsopen(true);
+              setIndex(1);
+            }}
+            className={
+              img2
+                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md ] `
+                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md ] `
+            }
+            style={{
+              backgroundImage: `url(${datas[1].img})`,
+            }}
+          ></div>
+          <div
+            onMouseEnter={() => {
+              mouseEnter(setImg3);
+            }}
+            onClick={() => {
+              setIsopen(true);
+              setIndex(2);
+            }}
+            className={
+              img3
+                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+            }
+            style={{
+              backgroundImage: `url(${datas[2].img})`,
+            }}
+          ></div>
+          <div
+            onMouseEnter={() => {
+              mouseEnter(setImg4);
+            }}
+            onClick={() => {
+              setIsopen(true);
+              setIndex(3);
+            }}
+            className={
+              img4
+                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md `
+                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md `
+            }
+            style={{
+              backgroundImage: `url(${datas[3].img})`,
+            }}
+          ></div>
+          <div
+            onMouseEnter={() => {
+              mouseEnter(setImg5);
+            }}
+            onClick={() => {
+              setIsopen(true);
+              setIndex(4);
+            }}
+            className={
+              img5
+                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+            }
+            style={{
+              backgroundImage: `url(${datas[4].img})`,
+            }}
+          ></div>
+          <div
+            onMouseEnter={() => {
+              mouseEnter(setImg6);
+            }}
+            onClick={() => {
+              setIsopen(true);
+              setIndex(5);
+            }}
+            className={
+              img6
+                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+            }
+            style={{
+              backgroundImage: `url(${datas[5].img})`,
+            }}
+          ></div>
+          <div
+            onMouseEnter={() => {
+              mouseEnter(setImg7);
+            }}
+            onClick={() => {
+              setIsopen(true);
+              setIndex(6);
+            }}
+            className={
+              img7
+                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+            }
+            style={{
+              backgroundImage: `url(${datas[6].img})`,
+            }}
+          ></div>
+          <div
+            onMouseEnter={() => {
+              mouseEnter(setImg8);
+            }}
+            onClick={() => {
+              setIsopen(true);
+              setIndex(7);
+            }}
+            className={
+              img8
+                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+            }
+            style={{
+              backgroundImage: `url(${datas[7].img})`,
+            }}
+          ></div>
+          <div
+            onMouseEnter={() => {
+              mouseEnter(setImg9);
+            }}
+            onClick={() => {
+              setIsopen(true);
+              setIndex(8);
+            }}
+            className={
+              img9
+                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
+            }
+            style={{
+              backgroundImage: `url(${datas[8].img})`,
+            }}
+          ></div>
         </div>
       </div>
       <Footer />
+
+      {isOpen && <Imagemodal data={datas} setClose={setIsopen} index={index} />}
     </div>
   );
 };
-
-function Masonry() {
-  // Hook1: Tie media queries to the number of columns
-  const columns = useMedia(
-    ["(min-width: 1500px)", "(min-width: 1000px)", "(min-width: 600px)"],
-    [5, 4, 3],
-    2
-  );
-  // Hook2: Measure the width of the container element
-  const [ref, { width }] = useMeasure();
-  // Hook3: Hold items
-  const [items, set] = useState(data);
-  // Hook4: shuffle data every 2 seconds
-  useEffect(() => {
-    const t = setInterval(() => set(shuffle), 4000);
-    return () => clearInterval(t);
-  }, []);
-  // Hook5: Form a grid of stacked items using width & columns we got from hooks 1 & 2
-  const [heights, gridItems] = useMemo(() => {
-    let heights = new Array(columns).fill(0); // Each column gets a height starting with zero
-    let gridItems = items.map((child, i) => {
-      const column = heights.indexOf(Math.min(...heights)); // Basic masonry-grid placing, puts tile into the smallest column using Math.min
-      const x = (width / columns) * column; // x = container width / number of columns * column index,
-      const y = (heights[column] += child.height / 2) - child.height / 2; // y = it's just the height of the current column
-      return {
-        ...child,
-        x,
-        y,
-        width: width / columns,
-        height: child.height / 2,
-      };
-    });
-    return [heights, gridItems];
-  }, [columns, items, width]);
-  // Hook6: Turn the static grid values into animated transitions, any addition, removal or change will be animated
-  const transitions = useTransition(gridItems, {
-    key: (item) => item.css,
-    from: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 0 }),
-    enter: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 1 }),
-    update: ({ x, y, width, height }) => ({ x, y, width, height }),
-    leave: { height: 0, opacity: 0 },
-    config: { mass: 5, tension: 500, friction: 100 },
-    trail: 25,
-  });
-  // Render the grid
-  return (
-    <div
-      ref={ref}
-      className={styles.list}
-      style={{ height: Math.max(...heights) }}
-    >
-      {transitions((style, item) => (
-        <a.div style={style}>
-          <div
-            style={{
-              backgroundImage: `url(${item.css}?auto=compress&dpr=2&h=500&w=500)`,
-            }}
-          />
-        </a.div>
-      ))}
-    </div>
-  );
-}
 
 export default index;

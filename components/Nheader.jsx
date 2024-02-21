@@ -258,13 +258,15 @@ const Nheader = ({ scrollLength, currHeight }) => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="#">
+                        <Link href="/about/department/Bemechabical">
                           B.E Mechanical Engineering <br /> (Naan Mudalvan
                           Scheme){" "}
                         </Link>
                       </li>
                       <li>
-                        <Link href="#">Science And Humanities</Link>
+                        <Link href="/about/department/Scienceandhuman">
+                          Science And Humanities
+                        </Link>
                       </li>
                       <li>
                         <Link href="#">MBA & MCA</Link>
@@ -356,28 +358,7 @@ const Nheader = ({ scrollLength, currHeight }) => {
                 onMouseEnter={() => setGallery(true)}
                 onMouseLeave={() => setGallery(false)}
               >
-                <Link href="#">GALLERY</Link>
-                <div
-                  className={
-                    gallery
-                      ? ` absolute top-[8vh] left-0 duration-300 w-[15vw] h-[15vh]`
-                      : "absolute top-[8vh] left-0 w-[15vw] h-0 duration-300  overflow-hidden"
-                  }
-                >
-                  <ul
-                    className={`bg-white text-black w-full h-full relative  flex flex-col items-center justify-around rounded-md py-[2vh] gap-2 drop-shadow-md border`}
-                  >
-                    <li>
-                      <Link href="#">example</Link>
-                    </li>
-                    <li>
-                      <Link href="#">example</Link>
-                    </li>
-                    <li>
-                      <Link href="#">example</Link>
-                    </li>
-                  </ul>
-                </div>
+                <Link href="/gallery">GALLERY</Link>
               </li>
               <li
                 className="relative  hover:bg-black hover:text-white px-[2vw] py-[2vh] duration-300 rounded-lg hover:scale-[1.05]"
