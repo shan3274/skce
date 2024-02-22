@@ -12,6 +12,7 @@ import useMeasure from "react-use-measure";
 import { Container, Title, Frame, Content, toggle } from "../utils/style";
 import * as Icons from "../utils/icons";
 import { BackgroundBeams } from "@/utils/background-beams";
+import Phoneheader from "./Phoneheader";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -71,107 +72,13 @@ const Nheader = ({ scrollLength, currHeight }) => {
   return (
     <>
       <div className="lg:hidden">
-        <div className="w-full flex flex-col gap-10 items-center justify-center bg-transparent absolute top-0 lg:hidden">
-          <div className="w-full h-[3rem]  bg-[#351790] z-[999] relative flex items-center justify-center text-white">
-            Sree krishna college of engineering
-          </div>
-          <div
-            className={
-              scrollLength > 70
-                ? "w-[100%] h-[5rem] bg-[#1f104e] z-[999] fixed top-0 duration-700 flex items-center justify-evenly text-white rounded-none"
-                : "w-[60%] h-[5rem] bg-[#1f104e] z-[999] sticky top-0 duration-700  flex  items-center justify-evenly text-white rounded-lg"
-            }
-          >
-            <Image src={logo} width={200} className="" />
-
-            {scrollLength > 70 && (
-              <button className=" flex items-center justify-center absolute right-[15%] lg:right-[5%]">
-                <button onClick={() => setSearch(true)} className="z-[999]">
-                  <CiSearch size={20} />
-                </button>
-              </button>
-            )}
-            {scrollLength > 70 && (
-              <div className="absolute right-[5%] lg:hidden">
-                {!isMenuOpen ? (
-                  <CiMenuBurger
-                    size={20}
-                    onClick={() => setIsMenuOpen(true)}
-                    className="cursor-pointer"
-                  />
-                ) : (
-                  <IoMdClose
-                    size={20}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="cursor-pointer lg:hidden"
-                  />
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-        {search && (
-          <Searchbox
-            scrollLength={scrollLength}
-            currHeight={currHeight}
-            setSearchs={setSearch}
-          />
-        )}
-
-        {scrollLength > 70 && (
-          <div
-            className={
-              isMenuOpen
-                ? "fixed w-full min-h-[50vh] bg-[#951022] z-[969] top-[5.5rem] lg:hidden duration-500  flex flex-col text-white pl-5 pt-5 overflow-scroll"
-                : "fixed w-full h-0 bg-[#951022] z-[969] top-[5.1rem] lg:hidden duration-300 overflow-hidden text-white pl-5 pt-5"
-            }
-          >
-            {scrollLength > 70 && (
-              <Container style={{ color: "white" }}>
-                <Tree name="main">
-                  <Tree name="subtree with children">
-                    <Tree name="hello" />
-                    <Tree name="sub-subtree with children">
-                      <Tree name="child 1" style={{ color: "#37ceff" }} />
-                      <Tree name="child 2" style={{ color: "#37ceff" }} />
-                      <Tree name="child 3" style={{ color: "#37ceff" }} />
-                      <Tree name="custom content">
-                        <div
-                          style={{
-                            position: "relative",
-                            width: "100%",
-                            height: 200,
-                            padding: 10,
-                          }}
-                        >
-                          <div
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              background: "black",
-                              borderRadius: 5,
-                            }}
-                          />
-                        </div>
-                      </Tree>
-                    </Tree>
-                    <Tree name="hello" />
-                  </Tree>
-                  <Tree name="demo">
-                    <Tree name="heelo" />
-                  </Tree>
-                </Tree>
-              </Container>
-            )}
-          </div>
-        )}
+        <Phoneheader currHeight={currHeight} scrollLength={scrollLength} />
       </div>
 
       <div className="hidden lg:block">
         <div className="w-full flex flex-col gap-10 items-center justify-center bg-transparent absolute top-0">
           <div className="w-full h-[3rem]  bg-[#1f104e] z-[999] relative flex items-center justify-center text-white">
             Sree krishna college of engineering
-            <BackgroundBeams />
           </div>
           <div
             className={
