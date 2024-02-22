@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { BackgroundBeams } from "@/utils/background-beams";
 
 const Footer = ({ scrollLength, currHeight }) => {
   console.log(scrollLength);
@@ -13,6 +14,7 @@ const Footer = ({ scrollLength, currHeight }) => {
       transition={{ duration: 1 }}
       className="w-full h-[60vh] border-t drop-shadow-lg flex flex-col items-center justify-center z-[999] bg-[#1f1f1f] relative bottom-[50px] text-white"
     >
+      <BackgroundBeams />
       <>
         <motion.div
           initial={{ opacity: 0 }}

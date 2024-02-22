@@ -12,6 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import React, { useEffect, useState, useRef } from "react";
+import { BackgroundBeams } from "@/utils/background-beams";
 const Becse = () => {
   const [scrollLength, setScrollLength] = useState(0);
 
@@ -92,9 +93,9 @@ const Becse = () => {
     },
   ];
   return (
-    <div>
+    <div className="">
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full h-screen flex items-center justify-center overflow-hidden ">
+      <div className="w-full h-screen flex items-center justify-center overflow-hidden bg-purple-950">
         <div className="w-[70%] h-full  bg-no-repeat bg-cover  flex items-center relative">
           <div className="absolute w-full h-full inset-0 bg-black/20"></div>
           <Swiper
@@ -115,8 +116,11 @@ const Becse = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="w-[30%] h-full bg-purple-950 relative flex items-center justify-center flex-col gap-5">
-          <div className="absolute lg:w-full w-[200%] h-[120%] bg-purple-950 rotate-[10deg] lg:rotate-[30deg] left-[-50%] lg:top-[5%] z-[1]"></div>
+        <div className="w-[30%] h-full  relative flex items-center justify-center flex-col gap-5 ">
+          <div className="absolute lg:w-full w-[200%] h-[120%] bg-purple-950 rotate-[10deg] lg:rotate-[30deg] left-[-50%] lg:top-[5%] z-[1]">
+            {" "}
+            <BackgroundBeams />
+          </div>
 
           <div className="text-white flex flex-col gap-5 relative z-[1] top-[5%] right-[15%]">
             <h1 className="text-[30px] font-titlefont ">
@@ -147,6 +151,7 @@ const Becse = () => {
           </div>
         </div>
       </div>
+
       <div className="w-full h-[10vh] bg-purple-950 flex items-center justify-center">
         <select
           onChange={(e) => setSelOption(e.target.value)}

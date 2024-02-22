@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Nheader from "@/components/Nheader";
+import { BackgroundBeams } from "@/utils/background-beams";
 import React, { useEffect, useState } from "react";
 
 const Staffdetails = () => {
@@ -99,7 +100,8 @@ const Staffdetails = () => {
   return (
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full min-h-screen overflow-scroll duration-300 flex flex-col items-center pt-[30vh] pb-10 gap-10 bg-[url(https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] ">
+      <div className="w-full min-h-screen overflow-scroll duration-300 flex flex-col items-center pt-[30vh] pb-10 gap-10  bg-purple-950">
+        <BackgroundBeams />
         <select
           onChange={(e) => setSelValue(e.target.value)}
           name=""
@@ -119,7 +121,7 @@ const Staffdetails = () => {
           <option value="NON-TEACHING STAFF">NON-TEACHING STAFF</option>
         </select>
 
-        <div className="relative w-[80%] py-10 rounded-md bg-black/50 backdrop-blur-lg flex flex-col items-center justify-center gap-5 duration-300">
+        <div className="relative w-[80%] py-10 rounded-[30px] bg-black/50 backdrop-blur-lg flex flex-col items-center justify-center gap-5 duration-300">
           <div className="w-[90%] h-[40px] bg-black/50 rounded-md backdrop-blur-md flex items-center justify-around pl-5 text-white">
             <div className="w-[10%]">S.No</div>
             <div className="w-[25%]">FACULTY NAM.E</div>

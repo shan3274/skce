@@ -21,9 +21,9 @@ const Fromprinciple = () => {
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
       <div className="w-full h-screen flex items-center justify-center overflow-hidden ">
-        <div className="w-[70%] h-full bg-[url(https://www.sreekrishnaengcollege.com/assets/img/Principal.jpg)] bg-no-repeat bg-cover  flex items-center relative">
+        <div className="w-[70%] h-full -scale-x-100 bg-[url(https://www.sreekrishnaengcollege.com/assets/img/Principal.jpg)] bg-no-repeat bg-cover  flex items-center relative">
           <div className="absolute w-full h-full inset-0 bg-black/20"></div>
-          <div className="absolute bottom-[10vh]  left-[10vh] w-[40vw] h-[20vh] bg-white/50 backdrop-blur-md rounded-md flex flex-col p-5 justify-around">
+          <div className="absolute bottom-[10vh]  left-[55vh] w-[40vw] h-[20vh] -scale-x-100 bg-white/50 backdrop-blur-md rounded-md flex flex-col p-5 justify-around">
             <h1 className="text-[30px] font-titlefont  text-[#332388]">
               PROF.DR.S.SRINIVASA RAO MADANE
             </h1>

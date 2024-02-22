@@ -1,6 +1,7 @@
 import Loader from "@/components/Loader";
 import React, { useEffect, useRef, useState } from "react";
 import {} from "@react-spring/web";
+
 import {
   motion,
   AnimatePresence,
@@ -22,6 +23,9 @@ import Chatbox from "@/components/Chatbox";
 import { db } from "@/utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Stackitems from "@/components/Stackitems";
+
+import { BackgroundBeams } from "@/utils/background-beams";
+import Result from "@/components/Result";
 
 const index = () => {
   const [loader, setLoader] = useState(true);
@@ -52,11 +56,7 @@ const index = () => {
       <div id="main-container " className="bg-transparent">
         <Nheader scrollLength={scrollLength} currHeight={currHeight} />
         <Hero scrollLength={scrollLength} currHeight={currHeight} />
-
-        <div className="fixed top-0 w-full h-screen bg-[#ffffff] flex items-center justify-center">
-          <h1> hello</h1>
-        </div>
-
+        <Result scollLength={scrollLength} currentHieght={currHeight} />
         <Chairman scrollLength={scrollLength} currHeight={currHeight} />
         <Facilities scrollLength={scrollLength} currHeight={currHeight} />
         <Help scrollLength={scrollLength} currHeight={currHeight} />

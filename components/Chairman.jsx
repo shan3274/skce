@@ -1,81 +1,68 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import React from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import chairman from "@/public/chairman.jpg";
-import privellor from "@/public/sree-krishna-college-of-engg-vellore-03.jpg";
-import priciple from "@/public/Principal.jpg";
+import slide1 from "@/public/slide1.webp";
 
-import { Autoplay } from "swiper/modules";
-import Image from "next/image";
-import Typewriter from "typewriter-effect";
-
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Chairman = () => {
   return (
-    <div
-      id="chairmain"
-      className="relative w-full h-screen flex items-center justify-center mt-[25vh] drop-shadow-md overflow-hidden"
-    >
-      <div className="chair absolute w-[30%]  h-[30%]  rounded-lg z-[2] top-[22vh] p-10 right-[13vw] font-titlefont">
-        <h1 className="text-[100px] text-white font-[700] drop-shadow-2xl font-titlefont">
-          CHAIRMAN
+    <div className="w-full h-screen bg-[#1E4078] flex lg:flex-row flex-col-reverse relative overflow-hidden ">
+      <div className="lg:absolute left-[20vh] top-0 lg:w-[30%] h-screen flex flex-col items-start justify-center gap-2 text-white p-10">
+        <h1 className="lg:text-[35px] text-[30px] font-[700]">
+          Play on the Stage or on the Field
         </h1>
-        <h1 className="text-[100px] text-[#CFFA1E] font-[700] font-titlefont">
-          POSITION
-        </h1>
-        <p className="text-white w-[100%]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam non
-          ducimus cupiditate est nam aliquam eligendi commodi consequatur.
-          Quidem numquam praesentium eius perferendis? Doloremque necessitatibus
-          tempore cum aspernatur tenetur harum?
+        <h2 className="text-[20px] font-[700]">Conservatory of Music</h2>
+        <p className="lg:text-[15px] text-[13px]">
+          Wheaton's world-renowned Conservatory of Music houses nine ensembles
+          that are open to all Wheaton students, regardless of major. Choose
+          from Chamber Music, Jazz or Percussion Ensemble, Concert Choir, Men's
+          Glee Club, Women's Chorale, Symphonic Band, or Opera Mainstage.
+        </p>
+        <h2 className="text-[20px] font-[700]">Thunder Athletics</h2>
+        <p className="g:text-[15px] text-[13px]">
+          Over 25% of Wheaton’s student body participates in athletics, and it's
+          no wonder with so many options available, including baseball,
+          basketball, football, cross country, golf, soccer, swimming, tennis,
+          softball, track and field, volleyball, and wrestling. Our Division III
+          athletes are conference and national champions. But, most importantly,
+          we pursue Christian faith, character, and leadership through
+          competitive sports programs that “run the race to win.”
         </p>
       </div>
+
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 4000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
-        className="w-full h-screen   overflow-hidden bg-[#212121] "
+        className=" w-full h-full relative flex justify-end "
       >
         <SwiperSlide>
-          <div
-            className={`w-full h-full overflow-hidden flex items-center justify-start pl-[15vw] relative`}
-          >
-            <div className="absolute h-screen w-[1px] bg-white left-[5vw] side-line"></div>
-            <Image
-              src={chairman}
-              className="w-[50%] rounded-lg drop-shadow-md  hover:scale-[1.05] duration-500 img-round"
-            />
+          <div className="w-full h-full flex items-end justify-end">
+            <div className="lg:w-[50%] relative h-[70%] flex items-center justify-center">
+              <img
+                src="https://pxl-wheatonedu.terminalfour.net/fit-in/1200x1200/filters:format(webp)/filters:quality(85)/prod02/channel_1/media/conservatory-of-music/Jazz-Combo-2022.jpg"
+                alt=""
+                className="w-[90%] aspect-[16/9] rounded-lg drop-shadow-lg"
+              />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div
-            className={`w-full h-full overflow-hidden flex items-center justify-start pl-[15vw] relative`}
-          >
-            <div className="absolute h-screen w-[1px] bg-white left-[5vw] side-line"></div>
-            <Image
-              src={privellor}
-              className="w-[50%] rounded-lg drop-shadow-md  hover:scale-[1.05] duration-500 img-round"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className={`w-full h-full overflow-hidden flex items-center justify-start pl-[15vw] relative`}
-          >
-            <div className="absolute h-screen w-[1px] bg-white left-[5vw] side-line"></div>
-            <Image
-              src={priciple}
-              className="w-[50%] rounded-lg drop-shadow-md  hover:scale-[1.05] duration-500 img-round"
-            />
+          <div className="w-full h-full flex items-end justify-end">
+            <div className="lg:w-[50%] relative h-[70%] flex items-center justify-center">
+              <img
+                src="https://pxl-wheatonedu.terminalfour.net/fit-in/1200x1200/filters:format(webp)/filters:quality(85)/prod02/channel_1/media/athletics/Rodriguez_Melody_2_.jpg"
+                alt=""
+                className="w-[90%] aspect-[16/9] rounded-lg drop-shadow-lg"
+              />
+            </div>
           </div>
         </SwiperSlide>
       </Swiper>

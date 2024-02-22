@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.0",
     "@react-spring/parallax": "^9.7.3",
     "@react-spring/web": "^9.7.3",
+    "clsx": "^2.1.0",
     "firebase": "^10.8.0",
     "framer-motion": "^11.0.5",
     "locomotive-scroll": "^4.1.4",
@@ -25,6 +26,7 @@
     "react-use-measure": "^2.1.1",
     "styled-components": "^6.1.8",
     "swiper": "^11.0.6",
+    "tailwind-merge": "^2.2.1",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {

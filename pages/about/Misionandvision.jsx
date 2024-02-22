@@ -21,7 +21,7 @@ const Misionandvision = () => {
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
       <div className="w-full h-screen flex items-center justify-center overflow-hidden ">
-        <div className="w-[70%] h-full bg-[url(https://www.sreekrishnaengcollege.com/assets/img/missionvision-1.jpg)]  flex items-center relative">
+        <div className="w-[70%] h-full bg-[url(https://images.unsplash.com/photo-1581092917372-d2db8f7904c6?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]  flex items-center relative">
           <div className="absolute w-full h-full inset-0 bg-black/20"></div>
         </div>
         <div className="w-[30%] h-full bg-purple-950 relative flex items-center justify-center flex-col gap-5">

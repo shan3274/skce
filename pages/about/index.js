@@ -3,13 +3,15 @@ import Nheader from "@/components/Nheader";
 import React, { useEffect, useState, useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import imgdata from "@/utils/imgdata";
+import { motion } from "framer-motion";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination, Parallax } from "swiper/modules";
-import Imagemodal from "@/components/Imagemodal";
+
+import Picgalary from "@/components/Picgalary";
+import { cards } from "@/utils/Gallerycard";
 
 const index = () => {
   const [scrollLength, setScrollLength] = useState(0);
@@ -17,120 +19,43 @@ const index = () => {
   const [currHeight, setCurrHeight] = useState(0);
   useEffect(() => {
     setCurrHeight(window.innerHeight);
-    const handleScroll = () => {
-      const calculatedScrollLength = window.scrollY;
-      setScrollLength(calculatedScrollLength);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    setScrollLength(100);
   }, [scrollLength]);
 
-  const datas = [
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-65-1.jpg",
-      name: "this is img one",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-64.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-29.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-46.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-66.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-52.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-65-1.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-64.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-29.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-46.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-66.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-    {
-      img: "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-52.jpg",
-      name: "this is img two",
-      description: "this is dsecription",
-    },
-  ];
-  const [img1, setImg1] = useState(false);
-  const [img2, setImg2] = useState(false);
-  const [img3, setImg3] = useState(false);
-  const [img4, setImg4] = useState(false);
-  const [img5, setImg5] = useState(true);
-  const [img6, setImg6] = useState(false);
-  const [img7, setImg7] = useState(false);
-  const [img8, setImg8] = useState(false);
-  const [img9, setImg9] = useState(false);
-
-  const [isOpen, setIsopen] = useState(false);
-  const [index, setIndex] = useState();
-
-  const mouseEnter = (setState) => {
-    setImg1(false);
-    setImg2(false);
-    setImg3(false);
-    setImg4(false);
-    setImg5(false);
-    setImg6(false);
-    setImg7(false);
-    setImg8(false);
-    setImg9(false);
-    setState(true);
-  };
-
   return (
-    <div className="bg-[#383838]">
+    <div className="bg-purple-950">
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
       <div className="w-full h-screen flex items-center justify-center overflow-hidden ">
-        <div className="w-[70%] h-full bg-[url(https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-67.jpg)] bg-no-repeat bg-cover flex items-center relative">
+        <div className="w-[70%] h-full bg-[url(https://images.unsplash.com/flagged/photo-1554473675-d0904f3cbf38?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-no-repeat bg-cover flex items-center relative">
           <div className="absolute w-full h-full inset-0 bg-black/20"></div>
         </div>
-        <div className="w-[30%] h-full bg-purple-950 relative flex items-center justify-center flex-col gap-5">
+        <motion.div
+          animate={{ x: 50 }}
+          transition={{ type: "spring", stiffness: 100 }}
+          className="w-[30%] right-[50px] h-full bg-purple-950 relative flex items-center justify-center flex-col gap-5"
+        >
           <div className="absolute lg:w-full w-[200%] h-[120%] bg-purple-950 rotate-[10deg] lg:rotate-[30deg] left-[-50%] lg:top-[5%] z-0]"></div>
           <div className="z-[1] relative w-[100%] right-[15%] top-[5%]">
-            <p className="text-[#fff] font-titlefont text-[20px]">Welcome To</p>
-            <h2 className="text-[#ff3535] font-titlefont text-[25px]">
+            <motion.p
+              animate={{ x: 50 }}
+              transition={{ type: "spring", stiffness: 100 }}
+              className="text-[#fff] font-titlefont text-[20px] relative right-[50px]"
+            >
+              Welcome To
+            </motion.p>
+            <motion.h2
+              animate={{ x: 50 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="text-[#8541FB] font-titlefont text-[25px] relative right-[50px]"
+            >
               SREE KRISHNA COLLEGE OF ENGINEERING
-            </h2>
+            </motion.h2>
           </div>
-          <p className="relative z-[1] text-white right-[15%]  top-[5%]">
+          <motion.p
+            animate={{ x: 50 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="relative z-[1] text-white right-[15%] text-justify  top-[5%] ml-[-50px] "
+          >
             Sree Krishna College of Engineering in Vellore was inaugurated in
             August 2010 by Vellore District Collector Mr.S. Rajendran. SKCE is
             managed by Lord Sree Krishna Trust. The founder of the Trust, Dr. A.
@@ -143,10 +68,10 @@ const index = () => {
             The college excels in Infrastructure and has highly qualified and
             dedicated faculties and well equipped labs and library with huge
             number of collections and e-journals.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
-      <div className=" w-full flex items-center justify-center h-[20vh] text-[#f63b3b]">
+      <div className=" w-full flex items-center justify-center h-[20vh] text-[#8541FB]">
         <h1 className="font-titlefont text-[50px] font-[700]">
           Students Review
         </h1>
@@ -313,166 +238,10 @@ const index = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="w-full h-[60vh] flex items-center justify-center relative">
-        <div className="w-[80%] h-full flex items-center justify-center gap-5 p-20">
-          <div
-            onMouseEnter={() => {
-              mouseEnter(setImg1);
-            }}
-            onClick={() => {
-              setIsopen(true);
-              setIndex(0);
-            }}
-            className={
-              img1
-                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md `
-                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-            }
-            style={{
-              backgroundImage: `url(${datas[0].img})`,
-            }}
-          ></div>
-          <div
-            onMouseEnter={() => {
-              mouseEnter(setImg2);
-            }}
-            onClick={() => {
-              setIsopen(true);
-              setIndex(1);
-            }}
-            className={
-              img2
-                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md ] `
-                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md ] `
-            }
-            style={{
-              backgroundImage: `url(${datas[1].img})`,
-            }}
-          ></div>
-          <div
-            onMouseEnter={() => {
-              mouseEnter(setImg3);
-            }}
-            onClick={() => {
-              setIsopen(true);
-              setIndex(2);
-            }}
-            className={
-              img3
-                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-            }
-            style={{
-              backgroundImage: `url(${datas[2].img})`,
-            }}
-          ></div>
-          <div
-            onMouseEnter={() => {
-              mouseEnter(setImg4);
-            }}
-            onClick={() => {
-              setIsopen(true);
-              setIndex(3);
-            }}
-            className={
-              img4
-                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md `
-                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md `
-            }
-            style={{
-              backgroundImage: `url(${datas[3].img})`,
-            }}
-          ></div>
-          <div
-            onMouseEnter={() => {
-              mouseEnter(setImg5);
-            }}
-            onClick={() => {
-              setIsopen(true);
-              setIndex(4);
-            }}
-            className={
-              img5
-                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-            }
-            style={{
-              backgroundImage: `url(${datas[4].img})`,
-            }}
-          ></div>
-          <div
-            onMouseEnter={() => {
-              mouseEnter(setImg6);
-            }}
-            onClick={() => {
-              setIsopen(true);
-              setIndex(5);
-            }}
-            className={
-              img6
-                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-            }
-            style={{
-              backgroundImage: `url(${datas[5].img})`,
-            }}
-          ></div>
-          <div
-            onMouseEnter={() => {
-              mouseEnter(setImg7);
-            }}
-            onClick={() => {
-              setIsopen(true);
-              setIndex(6);
-            }}
-            className={
-              img7
-                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-            }
-            style={{
-              backgroundImage: `url(${datas[6].img})`,
-            }}
-          ></div>
-          <div
-            onMouseEnter={() => {
-              mouseEnter(setImg8);
-            }}
-            onClick={() => {
-              setIsopen(true);
-              setIndex(7);
-            }}
-            className={
-              img8
-                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-            }
-            style={{
-              backgroundImage: `url(${datas[7].img})`,
-            }}
-          ></div>
-          <div
-            onMouseEnter={() => {
-              mouseEnter(setImg9);
-            }}
-            onClick={() => {
-              setIsopen(true);
-              setIndex(8);
-            }}
-            className={
-              img9
-                ? `w-[70%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-                : `w-[10%] h-[100%] bg-black duration-300 bg-cover bg-no-repeat rounded-md  `
-            }
-            style={{
-              backgroundImage: `url(${datas[8].img})`,
-            }}
-          ></div>
-        </div>
+      <div className="w-full h-[100vh] flex items-center justify-center relative top-[-10vh]">
+        <Picgalary card={[cards, cards]} />
       </div>
       <Footer />
-
-      {isOpen && <Imagemodal data={datas} setClose={setIsopen} index={index} />}
     </div>
   );
 };

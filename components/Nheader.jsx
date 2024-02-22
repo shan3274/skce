@@ -11,6 +11,7 @@ import { useSpring, a } from "@react-spring/web";
 import useMeasure from "react-use-measure";
 import { Container, Title, Frame, Content, toggle } from "../utils/style";
 import * as Icons from "../utils/icons";
+import { BackgroundBeams } from "@/utils/background-beams";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -170,6 +171,7 @@ const Nheader = ({ scrollLength, currHeight }) => {
         <div className="w-full flex flex-col gap-10 items-center justify-center bg-transparent absolute top-0">
           <div className="w-full h-[3rem]  bg-[#1f104e] z-[999] relative flex items-center justify-center text-white">
             Sree krishna college of engineering
+            <BackgroundBeams />
           </div>
           <div
             className={
@@ -179,8 +181,13 @@ const Nheader = ({ scrollLength, currHeight }) => {
             }
           >
             <Link href="/">
-              <Image src={logo} width={200} className="cursor-pointer" />
+              <Image
+                src={logo}
+                width={200}
+                className="cursor-pointer relative z-[9999]"
+              />
             </Link>
+            <BackgroundBeams />
             <ul
               className={
                 scrollLength > 70
