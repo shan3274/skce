@@ -33,7 +33,7 @@ const Footer = ({ scrollLength, currHeight }) => {
               <Link href="#">AICTE Essentials</Link>
             </div>
 
-            <div className="w-[45%] h-[90%] flex flex-col justify-evenly text-[13px] ">
+            <div className="w-[45%] h-[50vh] flex flex-col justify-evenly text-[13px] ">
               <h1 className="text-[17px] font-[700]">DEPARTMENTS</h1>
               <Link href="#">B.E. Civil Engineering(Naan Mudalvan Scheme)</Link>
               <Link href="#">B.E- Computer Science(Naan Mudalvan Scheme)</Link>

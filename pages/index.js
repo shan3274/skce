@@ -1,7 +1,5 @@
-import Loader from "@/components/Loader";
 import React, { useEffect, useRef, useState } from "react";
-import {} from "@react-spring/web";
-
+import { gsap } from "gsap";
 import {
   motion,
   AnimatePresence,
@@ -10,9 +8,6 @@ import {
   useTransform,
 } from "framer-motion";
 import Hero from "@/components/Hero";
-import Searchbox from "@/components/Searchbox";
-import Parallaxpage1 from "@/components/Parallaxpage1";
-import Parallaxpage2 from "@/components/Parallaxpage2";
 import Facilities from "@/components/Facilities";
 import Help from "@/components/Help";
 import Footer from "@/components/Footer";
@@ -20,11 +15,6 @@ import Nheader from "@/components/Nheader";
 import Chairman from "@/components/Chairman";
 import Nloader from "@/components/Nloader";
 import Chatbox from "@/components/Chatbox";
-import { db } from "@/utils/firebase";
-import { collection, getDocs } from "firebase/firestore";
-import Stackitems from "@/components/Stackitems";
-
-import { BackgroundBeams } from "@/utils/background-beams";
 import Result from "@/components/Result";
 
 const index = () => {
@@ -45,15 +35,43 @@ const index = () => {
     };
   }, [scrollLength]);
 
-  return loader ? (
-    <AnimatePresence>
-      <motion.div key="loader">
-        <Nloader setLoading={setLoader} />
-      </motion.div>
-    </AnimatePresence>
-  ) : (
+  useEffect(() => {
+    gsap.fromTo(
+      ".loadingpage",
+      { opacity: 1 },
+      {
+        opacity: 0,
+        duration: 1.5,
+        delay: 2,
+      }
+    );
+    gsap.fromTo(
+      ".img",
+      { y: 100, opacity: 1 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 3.5,
+        delay: 0.5,
+        opacity: 0,
+      }
+    );
+
+    setTimeout(() => {
+      setLoader(false);
+    }, 4000);
+  }, []);
+
+  return (
     <>
       <div id="main-container " className="bg-transparent">
+        {loader && (
+          <div className="fixed w-full h-screen top-0 left-0 z-[9999]">
+            <div className="loadingpage w-full h-screen flex items-center justify-center bg-[#000000] flex-col gap-10">
+              <img className="img w-[70%] lg:w-[50%]" src="logo.png" alt="" />
+            </div>
+          </div>
+        )}
         <Nheader scrollLength={scrollLength} currHeight={currHeight} />
         <Hero scrollLength={scrollLength} currHeight={currHeight} />
         <Result scollLength={scrollLength} currentHieght={currHeight} />

@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         titlefont: ["Anta", " sans-serif"],
+        michroma: ["Michroma", " sans-serif"],
       },
     },
   },

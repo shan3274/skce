@@ -17,7 +17,7 @@ const Phoneheader = ({ scrollLength, currHeight }) => {
   const [gallery, setGallery] = useState(false);
   const [contact, setContact] = useState(false);
   return (
-    <div className="fixed top-0 left-0 z-[9999] w-full">
+    <div className="fixed top-0 left-0 z-[999] w-full">
       <div className="w-full flex flex-col gap-10 items-center justify-center bg-transparent absolute top-0 lg:hidden">
         <div className="w-full h-[3rem]  bg-[#351790] z-[999] relative flex items-center justify-center text-white">
           Sree krishna college of engineering
@@ -97,7 +97,7 @@ const Phoneheader = ({ scrollLength, currHeight }) => {
               className={
                 about
                   ? "flex flex-col h-[200px] w-full duration-300 overflow-hidden pl-5 pt-5 gap-3 border-b"
-                  : "flex flex-col h-[0px] w-full duration-300 overflow-hidden pl-5 pt-5 gap-3"
+                  : "flex flex-col h-[0px] w-full duration-300 overflow-hidden  gap-3"
               }
             >
               <h2 className="text-[15px] font-[700] ">About us</h2>
@@ -122,6 +122,94 @@ const Phoneheader = ({ scrollLength, currHeight }) => {
               </li>
               <li>
                 <Link href="/about/Aicteesen">AICTE Essentials</Link>
+              </li>
+            </ul>
+            <ul
+              className={
+                about
+                  ? "flex flex-col h-[300px] w-full duration-300 overflow-hidden pl-5 pt-5 gap-3 border-b pb-5"
+                  : "flex flex-col h-[0px] w-full duration-300 overflow-hidden pl-5 pt-5 gap-3"
+              }
+            >
+              <h2 className="text-[15px] font-[700]">DEPARTMENTSs</h2>
+              <li>
+                <Link href="/about/department/Becivil">
+                  B.E. Civil Engineering <br /> (Naan Mudalvan Scheme){" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Becse">
+                  B.E- Computer Science <br /> (Naan Mudalvan Scheme){" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Beelectrics">
+                  B.E Electronics And Communication <br />
+                  (Naan Mudalvan Scheme){" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Beelectricandelec">
+                  B.E Electrical And Electronics <br />
+                  (Naan Mudalvan Scheme)
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Bemechabical">
+                  B.E Mechanical Engineering <br /> (Naan Mudalvan Scheme){" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Scienceandhuman">
+                  Science And Humanities
+                </Link>
+              </li>
+              <li>
+                <Link href="#">MBA & MCA</Link>
+              </li>
+            </ul>
+            <ul
+              className={
+                about
+                  ? "flex flex-col h-[300px] w-full duration-300 overflow-hidden pl-5 pt-5 gap-3 border-b "
+                  : "flex flex-col h-[0px] w-full duration-300 overflow-hidden  gap-3"
+              }
+            >
+              <h2 className="text-[15px] font-[700]">DEPARTMENTSs</h2>
+              <li>
+                <Link href="/about/department/Becivil">
+                  B.E. Civil Engineering <br /> (Naan Mudalvan Scheme){" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Becse">
+                  B.E- Computer Science <br /> (Naan Mudalvan Scheme){" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Beelectrics">
+                  B.E Electronics And Communication <br />
+                  (Naan Mudalvan Scheme){" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Beelectricandelec">
+                  B.E Electrical And Electronics <br />
+                  (Naan Mudalvan Scheme)
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Bemechabical">
+                  B.E Mechanical Engineering <br /> (Naan Mudalvan Scheme){" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/department/Scienceandhuman">
+                  Science And Humanities
+                </Link>
+              </li>
+              <li>
+                <Link href="#">MBA & MCA</Link>
               </li>
             </ul>
             <li

@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Nheader from "@/components/Nheader";
+import Layout1 from "@/utils/Layout1";
 import React, { useEffect, useState } from "react";
 import { AiOutlineSend } from "react-icons/ai";
 
@@ -18,40 +19,24 @@ const index = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollLength]);
+
+  const data = {
+    h1: "FIND US",
+    h2: "SREE KRISHNA COLLEGE OF ENGINEERING,",
+    p1: " UNAI, ANACIUT POST, VELLORE-632101. 9894216849, 94433 22420, 90474 31438, 04162 903276 info@sreekrishnaengcollege.com",
+    p2: " UNAI, ANACIUT POST, VELLORE-632101. 9894216849, 94433 22420, 90474 31438, 04162 903276 info@sreekrishnaengcollege.com",
+    h3: "Trust Office: SREE KRISHNA COLLEGE OF ENGINEERING,",
+    bg: [
+      "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
+    nameplate: {
+      h1: "SREE KRISHNA COLLEGE OF ENGINEERING",
+    },
+  };
   return (
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full h-screen flex items-center justify-center overflow-hidden">
-        <div className="w-[70%] h-full bg-[url(https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-no-repeat bg-cover  flex items-center relative">
-          <div className="absolute w-full h-full inset-0 bg-black/20"></div>
-          <div className="absolute bottom-[10vh]  left-[10vh] w-[40vw] h-[20vh] bg-white/50 backdrop-blur-md rounded-md flex flex-col p-5 justify-around">
-            <h1 className="text-[30px] font-titlefont  text-[#332388]">
-              SREE KRISHNA COLLEGE OF ENGINEERING,
-            </h1>
-          </div>
-        </div>
-        <div className="w-[30%] h-full bg-purple-950 relative flex items-center justify-center flex-col gap-5">
-          <div className="absolute lg:w-full w-[200%] h-[120%] bg-purple-950 rotate-[10deg] lg:rotate-[30deg] left-[-50%] lg:top-[5%] z-0]"></div>
-
-          <div className="text-white flex flex-col gap-5 relative z-[1] top-[5%] right-[15%]">
-            <h1 className="text-[40px] font-titlefont ">FIND US</h1>
-            <h2 className="text-[#8843ff]">
-              SREE KRISHNA COLLEGE OF ENGINEERING,
-            </h2>
-            <p className="text-[13px]">
-              UNAI, ANACIUT POST, VELLORE-632101. 9894216849, 94433 22420, 90474
-              31438, 04162 903276 info@sreekrishnaengcollege.com
-            </p>
-            <h2 className="text-[#8843ff]">
-              Trust Office: SREE KRISHNA COLLEGE OF ENGINEERING,
-            </h2>
-            <p className="text-[13px]">
-              UNAI, ANACIUT POST, VELLORE-632101. 9894216849, 94433 22420, 90474
-              31438, 04162 903276 info@sreekrishnaengcollege.com
-            </p>
-          </div>
-        </div>
-      </div>
+      <Layout1 data={data} />
       <div className="w-full h-[80vh] lg:flex-row flex-col flex items-center justify-center gap-5 bg-[#dedede]">
         <div className="w-[40%] h-[70%] flex flex-col justify-around ">
           <h1 className="text-[40px] font-titlefont">Contact Us</h1>

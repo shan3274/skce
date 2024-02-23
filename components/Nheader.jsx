@@ -67,7 +67,6 @@ const Nheader = ({ scrollLength, currHeight }) => {
 
   const [search, setSearch] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  console.log(scrollLength);
 
   return (
     <>
@@ -83,7 +82,7 @@ const Nheader = ({ scrollLength, currHeight }) => {
           <div
             className={
               scrollLength > 70
-                ? "w-[100%] h-[5rem] bg-[#1f104e] z-[999] fixed top-0 duration-700 flex items-center justify-evenly text-white rounded-none"
+                ? "w-[100%] h-[5rem] bg-[#1f104e] z-[999] fixed top-0 duration-700 flex items-center justify-evenly text-white rounded-none "
                 : "w-[60%] h-[5rem] bg-[#1f104e] z-[999] sticky top-0 duration-700  flex  items-center justify-evenly text-white rounded-lg"
             }
           >
@@ -98,16 +97,16 @@ const Nheader = ({ scrollLength, currHeight }) => {
             <ul
               className={
                 scrollLength > 70
-                  ? "lg:flex  hidden gap-2 text-[15px]"
-                  : "lg:flex  hidden gap-2 text-[12px]"
+                  ? "lg:flex  h-full  hidden gap-2 text-[12px] items-center justify-evenly"
+                  : "lg:flex h-full  hidden gap-2 text-[12px] items-center justify-evenly"
               }
             >
               <li
-                className="relative  hover:bg-black hover:text-white px-[2vw] py-[2vh] duration-300 rounded-lg hover:scale-[1.05] z-[10]"
+                className="relative  hover:bg-white hover:text-black h-[30px] px-[1vw] flex items-center justify-center  duration-300 rounded-lg hover:scale-[1.05] z-[10]"
                 onMouseEnter={() => setAbout(true)}
                 onMouseLeave={() => setAbout(false)}
               >
-                <Link href="/">About SKCE</Link>
+                <Link href="/about">About SKCE</Link>
                 <div
                   className={
                     about
@@ -116,7 +115,7 @@ const Nheader = ({ scrollLength, currHeight }) => {
                   }
                 >
                   <div
-                    className={`w-[70vw] h-full bg-white text-black  relative  flex  items-center justify-around rounded-md py-[2vh] gap-2 drop-shadow-md border z-[999]`}
+                    className={`w-[70vw] h-full bg-white text-black  relative  right-[10vw] flex  items-center justify-around rounded-md py-[2vh] gap-2 drop-shadow-md border z-[999]`}
                   >
                     <ul className="flex flex-col items-start justify-evenly h-full text-[12px] overflow-hidden ">
                       <h2 className="text-[15px] font-[700] ">About us</h2>
@@ -189,22 +188,27 @@ const Nheader = ({ scrollLength, currHeight }) => {
                     <ul className="flex flex-col items-start justify-evenly h-full text-[12px] overflow-hidden">
                       <h2 className="text-[15px] font-[700]">FACILITIES</h2>
                       <li>
-                        <Link href="#">Library </Link>
+                        <Link href="/about/facility/Library">Library</Link>
                       </li>
                       <li>
-                        <Link href="#">Internet </Link>
+                        <Link href="/about/facility/Internet">Internet</Link>
                       </li>
                       <li>
-                        <Link href="#">Health Care</Link>
+                        <Link href="/about/facility/Healthcare">
+                          Health Care
+                        </Link>
                       </li>
                       <li>
-                        <Link href="#">Canteen</Link>
+                        <Link href="/about/facility/Canteen">Canteen</Link>
                       </li>
                       <li>
-                        <Link href="#">Hostel </Link>
+                        <Link href="/about/facility/Transport">Transport</Link>
                       </li>
                       <li>
-                        <Link href="#">Sports</Link>
+                        <Link href="/about/facility/Hostel">Hostel </Link>
+                      </li>
+                      <li>
+                        <Link href="/about/facility/Sports">Sports</Link>
                       </li>
                     </ul>
                     <ul className="flex flex-col items-start justify-evenly h-full text-[12px] overflow-hidden"></ul>
@@ -212,7 +216,7 @@ const Nheader = ({ scrollLength, currHeight }) => {
                 </div>
               </li>
               <li
-                className="relative  hover:bg-black hover:text-white px-[2vw] py-[2vh] duration-300 rounded-lg hover:scale-[1.05]"
+                className="relative  hover:bg-white hover:text-black h-[30px] px-[1vw] flex items-center justify-center  duration-300 rounded-lg hover:scale-[1.05] z-[10]"
                 onMouseEnter={() => setstdAreana(true)}
                 onMouseLeave={() => setstdAreana(false)}
               >
@@ -240,7 +244,7 @@ const Nheader = ({ scrollLength, currHeight }) => {
                 </div>
               </li>
               <li
-                className="relative  hover:bg-black hover:text-white px-[2vw] py-[2vh] duration-300 rounded-lg hover:scale-[1.05]"
+                className="relative  hover:bg-white hover:text-black h-[30px] px-[1vw] flex items-center justify-center  duration-300 rounded-lg hover:scale-[1.05] z-[10]"
                 onMouseEnter={() => setAdm(true)}
                 onMouseLeave={() => setAdm(false)}
               >
@@ -268,14 +272,14 @@ const Nheader = ({ scrollLength, currHeight }) => {
                 </div>
               </li>
               <li
-                className="relative  hover:bg-black hover:text-white px-[2vw] py-[2vh] duration-300 rounded-lg hover:scale-[1.05]"
+                className="relative  hover:bg-white hover:text-black h-[30px] px-[1vw] flex items-center justify-center  duration-300 rounded-lg hover:scale-[1.05] z-[10]"
                 onMouseEnter={() => setGallery(true)}
                 onMouseLeave={() => setGallery(false)}
               >
                 <Link href="/gallery">GALLERY</Link>
               </li>
               <li
-                className="relative  hover:bg-black hover:text-white px-[2vw] py-[2vh] duration-300 rounded-lg hover:scale-[1.05]"
+                className="relative  hover:bg-white hover:text-black h-[30px] px-[1vw] flex items-center justify-center  duration-300 rounded-lg hover:scale-[1.05] z-[10]"
                 onMouseEnter={() => setContact(true)}
                 onMouseLeave={() => setContact(false)}
               >

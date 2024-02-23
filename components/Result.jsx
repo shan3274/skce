@@ -1,5 +1,6 @@
 import { BackgroundBeams } from "@/utils/background-beams";
 import React from "react";
+import Bubble from "@/utils/bubble";
 
 const Result = ({ scollLength, currentHieght }) => {
   return (

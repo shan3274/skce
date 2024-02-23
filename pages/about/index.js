@@ -1,6 +1,9 @@
 import Footer from "@/components/Footer";
 import Nheader from "@/components/Nheader";
-import React, { useEffect, useState, useMemo } from "react";
+import Layout1 from "@/utils/Layout1";
+import React, { useEffect, useState } from "react";
+import { AiOutlineSend } from "react-icons/ai";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { motion } from "framer-motion";
@@ -10,67 +13,36 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination, Parallax } from "swiper/modules";
 
-import Picgalary from "@/components/Picgalary";
-import { cards } from "@/utils/Gallerycard";
-
 const index = () => {
   const [scrollLength, setScrollLength] = useState(0);
 
   const [currHeight, setCurrHeight] = useState(0);
   useEffect(() => {
     setCurrHeight(window.innerHeight);
-    setScrollLength(100);
+    const handleScroll = () => {
+      const calculatedScrollLength = window.scrollY;
+      setScrollLength(calculatedScrollLength);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [scrollLength]);
 
+  const data = {
+    h1: "Welcome To",
+    h2: "SREE KRISHNA COLLEGE OF ENGINEERING",
+    p1: " Sree Krishna College of Engineering in Vellore was inaugurated in August 2010 by Vellore District Collector Mr.S. Rajendran. SKCE is managed by Lord Sree Krishna Trust. The founder of the Trust, Dr. A. Aranganathan, is a socialist with rich experience in Educational Institutions.",
+    p2: " Having achieved an inevitable reputation in his own profession, a keen social activist and visionary, felt the need of higher education at affordable cost to everyone.",
+    h3: "The college excels in Infrastructure and has highly qualified and dedicated faculties and well equipped labs and library with huge number of collections and e-journals.",
+    bg: [
+      "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-67.jpg",
+    ],
+  };
   return (
-    <div className="bg-purple-950">
+    <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full h-screen flex items-center justify-center overflow-hidden ">
-        <div className="w-[70%] h-full bg-[url(https://images.unsplash.com/flagged/photo-1554473675-d0904f3cbf38?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-no-repeat bg-cover flex items-center relative">
-          <div className="absolute w-full h-full inset-0 bg-black/20"></div>
-        </div>
-        <motion.div
-          animate={{ x: 50 }}
-          transition={{ type: "spring", stiffness: 100 }}
-          className="w-[30%] right-[50px] h-full bg-purple-950 relative flex items-center justify-center flex-col gap-5"
-        >
-          <div className="absolute lg:w-full w-[200%] h-[120%] bg-purple-950 rotate-[10deg] lg:rotate-[30deg] left-[-50%] lg:top-[5%] z-0]"></div>
-          <div className="z-[1] relative w-[100%] right-[15%] top-[5%]">
-            <motion.p
-              animate={{ x: 50 }}
-              transition={{ type: "spring", stiffness: 100 }}
-              className="text-[#fff] font-titlefont text-[20px] relative right-[50px]"
-            >
-              Welcome To
-            </motion.p>
-            <motion.h2
-              animate={{ x: 50 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="text-[#8541FB] font-titlefont text-[25px] relative right-[50px]"
-            >
-              SREE KRISHNA COLLEGE OF ENGINEERING
-            </motion.h2>
-          </div>
-          <motion.p
-            animate={{ x: 50 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="relative z-[1] text-white right-[15%] text-justify  top-[5%] ml-[-50px] "
-          >
-            Sree Krishna College of Engineering in Vellore was inaugurated in
-            August 2010 by Vellore District Collector Mr.S. Rajendran. SKCE is
-            managed by Lord Sree Krishna Trust. The founder of the Trust, Dr. A.
-            Aranganathan, is a socialist with rich experience in Educational
-            Institutions. <br /> <br />
-            Having achieved an inevitable reputation in his own profession, a
-            keen social activist and visionary, felt the need of higher
-            education at affordable cost to everyone. <br />
-            <br />
-            The college excels in Infrastructure and has highly qualified and
-            dedicated faculties and well equipped labs and library with huge
-            number of collections and e-journals.
-          </motion.p>
-        </motion.div>
-      </div>
+      <Layout1 data={data} />
       <div className=" w-full flex items-center justify-center h-[20vh] text-[#8541FB]">
         <h1 className="font-titlefont text-[50px] font-[700]">
           Students Review
@@ -237,9 +209,6 @@ const index = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-      </div>
-      <div className="w-full h-[100vh] flex items-center justify-center relative top-[-10vh]">
-        <Picgalary card={[cards, cards]} />
       </div>
       <Footer />
     </div>
