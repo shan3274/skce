@@ -167,6 +167,26 @@ body.loading {
   display: none;
 }
 
+.link {
+  position: relative;
+  letter-spacing: 0.5px;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  height: 2px;
+  width: 0; /* Initially set width to 0 */
+  left: 0;
+  bottom: -10px;
+  transition: width 0.3s; /* Add transition for smooth width change */
+}
+
+.link:hover::after {
+  /* Apply hover effect to the ::after pseudo-element */
+  width: 50%; /* Expand the width on hover */
+}
+
 .loadersvg {
   animation: draw 5s ease;
   stroke-width: 10px;
@@ -177,30 +197,6 @@ body.loading {
   left: -8vw;
 }
 
-@media (max-width: 600px) {
-  .layout1right {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    padding: 0;
-    margin-left: -10vh;
-    height: 70vh;
-    width: 90vw;
-  }
-  .layout1right h2 {
-    font-size: 20px;
-  }
-  .layout1right p {
-    font-size: 13px;
-  }
-  .incon {
-    width: 100%;
-    left: 0;
-  }
-  .lay1left {
-    width: 100%;
-  }
-}
 @keyframes draw {
   0% {
     stroke-dashoffset: 4500;

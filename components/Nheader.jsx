@@ -13,6 +13,7 @@ import { Container, Title, Frame, Content, toggle } from "../utils/style";
 import * as Icons from "../utils/icons";
 import { BackgroundBeams } from "@/utils/background-beams";
 import Phoneheader from "./Phoneheader";
+import Subheader from "./Subheader";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -68,6 +69,111 @@ const Nheader = ({ scrollLength, currHeight }) => {
   const [search, setSearch] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const [aboutb, setAboutb] = useState(false);
+
+  const subHeader = [
+    [
+      {
+        title: "About us",
+      },
+      {
+        name: "About The College",
+        pathName: "/about",
+      },
+      {
+        name: "SKCE Staff Details",
+        pathName: "/about/Staffdetails",
+      },
+      {
+        name: "Mission And Vision",
+        pathName: "/about/Misionandvision",
+      },
+      {
+        name: "From The Chairman’s Desk",
+        pathName: "/about/Fromchairman",
+      },
+      {
+        name: "From The Principal’s Desk",
+        pathName: "/about/Fromprinciple",
+      },
+      {
+        name: "AICTE Essentials",
+        pathName: "/about/Aicteesen",
+      },
+    ],
+    [
+      {
+        title: "DEPARTMENTS",
+      },
+      {
+        name: "B.E. Civil Engineering",
+        name1: "(Naan Mudalvan Scheme)",
+        pathName: "/about/department/Becivil",
+      },
+      {
+        name: " B.E- Computer Science",
+        name1: "(Naan Mudalvan Scheme)",
+        pathName: "/about/department/Becse",
+      },
+      {
+        name: "B.E Electronics And Communication",
+        name1: "(Naan Mudalvan Scheme)",
+        pathName: "/about/department/Beelectrics",
+      },
+      {
+        name: "B.E Electrical And Electronic",
+        name1: "(Naan Mudalvan Scheme)",
+        pathName: "/about/department/Beelectricandelec",
+      },
+      {
+        name: "B.E Mechanical Engineering",
+        name1: "(Naan Mudalvan Scheme)",
+        pathName: "/about/department/Bemechabical",
+      },
+      {
+        name: "Science And Humanities",
+        pathName: "/about/department/Scienceandhuman",
+      },
+      {
+        name: "MBA & MCA",
+        pathName: "#",
+      },
+    ],
+    [
+      {
+        title: "FACILITIES",
+      },
+      {
+        name: "Library",
+        pathName: "/about/facility/Library",
+      },
+      {
+        name: "Internet",
+        pathName: "/about/facility/Internet",
+      },
+      {
+        name: "Health Care",
+        pathName: "/about/facility/Healthcare",
+      },
+      {
+        name: "Canteen",
+        pathName: "/about/facility/Canteen",
+      },
+      {
+        name: "Transport",
+        pathName: "/about/facility/Transport",
+      },
+      {
+        name: "Hostel",
+        pathName: "/about/facility/Hostel",
+      },
+      {
+        name: "Sports",
+        pathName: "/about/facility/Sports",
+      },
+    ],
+  ];
+
   return (
     <>
       <div className="lg:hidden">
@@ -106,121 +212,23 @@ const Nheader = ({ scrollLength, currHeight }) => {
                 onMouseEnter={() => setAbout(true)}
                 onMouseLeave={() => setAbout(false)}
               >
-                <Link href="/about">About SKCE</Link>
-                <div
-                  className={
-                    about
-                      ? `absolute top-[8vh] left-[-30vh] h-[50vh] duration-300 `
-                      : "absolute top-[8vh] left-[-30vh]  h-0 duration-300  overflow-hidden"
-                  }
-                >
-                  <div
-                    className={`w-[70vw] h-full bg-white text-black  relative  right-[10vw] flex  items-center justify-around rounded-md py-[2vh] gap-2 drop-shadow-md border z-[999]`}
-                  >
-                    <ul className="flex flex-col items-start justify-evenly h-full text-[12px] overflow-hidden ">
-                      <h2 className="text-[15px] font-[700] ">About us</h2>
-                      <li>
-                        <Link href="/about">About The College </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/Staffdetails">
-                          SKCE Staff Details{" "}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/Misionandvision">
-                          Mission And Vision{" "}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/Fromchairman">
-                          From The Chairman’s Desk{" "}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/Fromprinciple">
-                          From The Principal’s Desk{" "}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/Aicteesen">AICTE Essentials</Link>
-                      </li>
-                    </ul>
-                    <ul className="flex flex-col items-start justify-evenly h-full text-[12px] overflow-hidden">
-                      <h2 className="text-[15px] font-[700]">DEPARTMENTSs</h2>
-                      <li>
-                        <Link href="/about/department/Becivil">
-                          B.E. Civil Engineering <br /> (Naan Mudalvan Scheme){" "}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/department/Becse">
-                          B.E- Computer Science <br /> (Naan Mudalvan Scheme){" "}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/department/Beelectrics">
-                          B.E Electronics And Communication <br />
-                          (Naan Mudalvan Scheme){" "}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/department/Beelectricandelec">
-                          B.E Electrical And Electronics <br />
-                          (Naan Mudalvan Scheme)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/department/Bemechabical">
-                          B.E Mechanical Engineering <br /> (Naan Mudalvan
-                          Scheme){" "}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/department/Scienceandhuman">
-                          Science And Humanities
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">MBA & MCA</Link>
-                      </li>
-                    </ul>
-                    <ul className="flex flex-col items-start justify-evenly h-full text-[12px] overflow-hidden">
-                      <h2 className="text-[15px] font-[700]">FACILITIES</h2>
-                      <li>
-                        <Link href="/about/facility/Library">Library</Link>
-                      </li>
-                      <li>
-                        <Link href="/about/facility/Internet">Internet</Link>
-                      </li>
-                      <li>
-                        <Link href="/about/facility/Healthcare">
-                          Health Care
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/facility/Canteen">Canteen</Link>
-                      </li>
-                      <li>
-                        <Link href="/about/facility/Transport">Transport</Link>
-                      </li>
-                      <li>
-                        <Link href="/about/facility/Hostel">Hostel </Link>
-                      </li>
-                      <li>
-                        <Link href="/about/facility/Sports">Sports</Link>
-                      </li>
-                    </ul>
-                    <ul className="flex flex-col items-start justify-evenly h-full text-[12px] overflow-hidden"></ul>
-                  </div>
-                </div>
+                <Link href="/about" className="hover:scale-[1.02] duration-300">
+                  About SKCE
+                </Link>
               </li>
+              <Subheader
+                data={subHeader}
+                isMenuopen={about}
+                scrollLength={scrollLength}
+              />
               <li
                 className="relative  hover:bg-white hover:text-black h-[30px] px-[1vw] flex items-center justify-center  duration-300 rounded-lg hover:scale-[1.05] z-[10]"
                 onMouseEnter={() => setstdAreana(true)}
                 onMouseLeave={() => setstdAreana(false)}
               >
-                <Link href="#">STUDENT ARENA</Link>
+                <Link href="#" className="hover:scale-[1.02] duration-300">
+                  STUDENT ARENA
+                </Link>
                 <div
                   className={
                     stdAreana

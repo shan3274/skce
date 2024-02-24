@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BackgroundBeams } from "@/utils/background-beams";
+import { Meteors } from "@/components/metoer";
 
 const Footer = ({ scrollLength, currHeight }) => {
   console.log(scrollLength);
@@ -12,9 +13,9 @@ const Footer = ({ scrollLength, currHeight }) => {
       whileInView={{ opacity: 1 }}
       animate={{ y: 50 }}
       transition={{ duration: 1 }}
-      className="w-full min-h-[60vh]  border-t drop-shadow-lg flex flex-col items-center justify-center z-[999] bg-[#1f1f1f] relative bottom-[50px] text-white"
+      className="w-full min-h-[60vh] overflow-hidden  border-t drop-shadow-lg flex flex-col items-center justify-center z-[999] bg-[#1f1f1f] relative bottom-[50px] text-white"
     >
-      <BackgroundBeams />
+      <Meteors number={30} />
       <>
         <motion.div
           initial={{ opacity: 0 }}
@@ -50,7 +51,8 @@ const Footer = ({ scrollLength, currHeight }) => {
               <Link href="#">MBA & MCA</Link>
             </div>
           </div>
-          <div className="lg:w-[40%] w-[100%] h-[80%] flex flex-col justify-evenly lg:gap-0 gap-2 mb-10 lg:items-center text-[15px]">
+          <div className="lg:w-[40%] w-[100%] h-[80%] flex flex-col justify-evenly lg:gap-0 gap-2 mb-10 lg:items-center text-[15px] relative">
+            <Meteors number={30} />
             <h1>Contact us</h1>
             <input
               type="text"

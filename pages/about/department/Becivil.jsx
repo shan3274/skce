@@ -13,7 +13,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import React, { useEffect, useState, useRef } from "react";
 import { TabsDemo } from "@/components/Tabs";
-import Layout1 from "@/utils/Layout1";
+import Layout1 from "@/components/Layout1";
 const Becivil = () => {
   const [scrollLength, setScrollLength] = useState(0);
 

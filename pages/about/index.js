@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Nheader from "@/components/Nheader";
-import Layout1 from "@/utils/Layout1";
+import Layout1 from "@/components/Layout1";
 import React, { useEffect, useState } from "react";
 import { AiOutlineSend } from "react-icons/ai";
 
@@ -48,7 +48,7 @@ const index = () => {
           Students Review
         </h1>
       </div>
-      <div className="w-full h-[60vh] relative ">
+      <div className="w-full h-[100vh] lg:h-[60vh] relative ">
         <Swiper
           style={{
             "--swiper-navigation-color": "#fff",
@@ -60,12 +60,8 @@ const index = () => {
           }}
           speed={600}
           parallax={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Parallax, Pagination, Navigation, Autoplay]}
-          className="mySwiper w-full h-[60vh]"
+          modules={[Parallax, Pagination, Autoplay]}
+          className="mySwiper w-full h-full"
         >
           <div
             slot="container-start"
@@ -77,8 +73,8 @@ const index = () => {
             data-swiper-parallax="-23%"
           ></div>
           <SwiperSlide>
-            <div className="w-full h-full flex items-center justify-center gap-10 bg-black/50">
-              <div className="w-[40%] h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
+            <div className="w-full h-full flex lg:flex-row flex-col items-center justify-center gap-10 bg-black/50">
+              <div className="lg:w-[40%] w-[90%]  lg:h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
                 <img
                   src="https://www.sreekrishnaengcollege.com/assets/img/team/1.jpg"
                   alt=""
@@ -97,7 +93,7 @@ const index = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-[40%] h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
+              <div className="lg:w-[40%] w-[90%]   xl:h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
                 <img
                   src="https://www.sreekrishnaengcollege.com/assets/img/team/1.jpg"
                   alt=""
@@ -121,8 +117,8 @@ const index = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="w-full h-full flex items-center justify-center gap-10 bg-black/50">
-              <div className="w-[40%] h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
+            <div className="w-full h-full flex lg:flex-row flex-col items-center justify-center gap-10 bg-black/50">
+              <div className="lg:w-[40%] w-[90%]  lg:h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
                 <img
                   src="https://www.sreekrishnaengcollege.com/assets/img/team/1.jpg"
                   alt=""
@@ -141,7 +137,7 @@ const index = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-[40%] h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
+              <div className="lg:w-[40%] w-[90%]   xl:h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
                 <img
                   src="https://www.sreekrishnaengcollege.com/assets/img/team/1.jpg"
                   alt=""
@@ -165,8 +161,8 @@ const index = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="w-full h-full flex items-center justify-center gap-10 bg-black/50">
-              <div className="w-[40%] h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
+            <div className="w-full h-full flex lg:flex-row flex-col items-center justify-center gap-10 bg-black/50">
+              <div className="lg:w-[40%] w-[90%]  lg:h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
                 <img
                   src="https://www.sreekrishnaengcollege.com/assets/img/team/1.jpg"
                   alt=""
@@ -185,7 +181,7 @@ const index = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-[40%] h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
+              <div className="lg:w-[40%] w-[90%]   xl:h-[70%] bg-white/30 backdrop-blur-lg rounded-lg flex gap-5 justify-center pt-10">
                 <img
                   src="https://www.sreekrishnaengcollege.com/assets/img/team/1.jpg"
                   alt=""

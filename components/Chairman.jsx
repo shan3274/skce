@@ -4,12 +4,16 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import slide1 from "@/public/slide1.webp";
+import Bubble from "@/utils/bubble";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Chairman = () => {
   return (
     <div className="w-full h-screen bg-[#1E4078] flex lg:flex-row flex-col-reverse relative overflow-hidden ">
+      <div className="absolute w-full h-full top-0 left-0">
+        <Bubble />
+      </div>
+
       <div className="lg:absolute left-[20vh] top-0 lg:w-[30%] h-screen flex flex-col items-start justify-center gap-2 text-white p-10">
         <h1 className="lg:text-[35px] text-[30px] font-[700]">
           Play on the Stage or on the Field
@@ -47,9 +51,9 @@ const Chairman = () => {
           <div className="w-full h-full flex items-end justify-end">
             <div className="lg:w-[50%] relative h-[70%] flex items-center justify-center">
               <img
-                src="https://pxl-wheatonedu.terminalfour.net/fit-in/1200x1200/filters:format(webp)/filters:quality(85)/prod02/channel_1/media/conservatory-of-music/Jazz-Combo-2022.jpg"
+                src="https://www.sreekrishnaengcollege.com/assets/img/gallery/1.jpg"
                 alt=""
-                className="w-[90%] aspect-[16/9] rounded-lg drop-shadow-lg"
+                className="w-[90%]  rounded-lg drop-shadow-lg"
               />
             </div>
           </div>
@@ -58,9 +62,9 @@ const Chairman = () => {
           <div className="w-full h-full flex items-end justify-end">
             <div className="lg:w-[50%] relative h-[70%] flex items-center justify-center">
               <img
-                src="https://pxl-wheatonedu.terminalfour.net/fit-in/1200x1200/filters:format(webp)/filters:quality(85)/prod02/channel_1/media/athletics/Rodriguez_Melody_2_.jpg"
+                src="https://www.sreekrishnaengcollege.com/assets/img/gallery/3.jpg"
                 alt=""
-                className="w-[90%] aspect-[16/9] rounded-lg drop-shadow-lg"
+                className="w-[90%]  rounded-lg drop-shadow-lg"
               />
             </div>
           </div>

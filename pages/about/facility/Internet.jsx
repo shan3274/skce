@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Nheader from "@/components/Nheader";
-import Layout1 from "@/utils/Layout1";
+import Layout1 from "@/components/Layout1";
 import React, { useEffect, useState } from "react";
 
 const Internet = () => {
