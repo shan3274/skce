@@ -78,12 +78,10 @@ const Layout1 = ({ data, top, left, right, bottom }) => {
         </motion.div>
       </div>
       <div className="xl:hidden w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
-        <div className="absolute w-full  h-full z-[10] bottom-[-50vh]">
+        <div className="absolute w-[100vw]  h-full z-[10] bottom-[-50vh] overflow-hidden">
           <Bubble width={"50vw"} />
         </div>
-        <div className="absolute w-[50%]  h-[50%] z-[10] left-[30vh] lg:left-[50vw]  bottom-0 flex items-end ">
-          <Bubble width={"100vw"} />
-        </div>
+
         <div className="w-full h-[60vh]">
           <Swiper
             spaceBetween={30}

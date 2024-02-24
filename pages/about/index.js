@@ -43,12 +43,12 @@ const index = () => {
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
       <Layout1 data={data} />
-      <div className=" w-full flex items-center justify-center h-[20vh] text-[#8541FB]">
+      <div className=" w-full sm:w-full flex items-center justify-center h-[20vh] text-[#8541FB]">
         <h1 className="font-titlefont text-[50px] font-[700]">
           Students Review
         </h1>
       </div>
-      <div className="w-full h-[100vh] lg:h-[60vh] relative ">
+      <div className="w-full  h-[100vh] lg:h-[60vh] relative ">
         <Swiper
           style={{
             "--swiper-navigation-color": "#fff",
