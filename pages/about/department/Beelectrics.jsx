@@ -12,22 +12,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import React, { useEffect, useState, useRef } from "react";
+import Layout1 from "@/components/Layout1";
 const Beelectrics = () => {
-  const [scrollLength, setScrollLength] = useState(0);
-
-  const [currHeight, setCurrHeight] = useState(0);
-  useEffect(() => {
-    setCurrHeight(window.innerHeight);
-    const handleScroll = () => {
-      const calculatedScrollLength = window.scrollY;
-      setScrollLength(calculatedScrollLength);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollLength]);
-
   const [selOption, setSelOption] = useState("FACULTY LIST");
 
   const sh = [
@@ -91,67 +77,21 @@ const Beelectrics = () => {
       qualification: "MSC,M.Phil",
     },
   ];
+
+  const data = {
+    h1: "B.E ELECTRONICS AND COMMUNICATION ENGINEERING",
+    h2: "NAAN MUDALVAN SCHEME - ARTIFICIAL INTELLIGENCE AND DATA SCIENCE MANAGEMENT",
+    p1: "The Electronics and Communication Engineering Department, have established at the equipment cost Rs. 40 lakhs, contains Electronic Circuits Laboratory, Linear Integrated Circuits Laboratory, Digital Electronics Laboratory, Microprocessor and Micro Controller Laboratory.The department start functioning with the first batch of students admitted into the department in 2011, with an intake of 60 in UG program. This course has been designed with an aim to meet industry requirements in the field of Electronics by studying hardware and interfacing of computer systems, programming skills and applications of computer emphasis on latest technological development. The Electronics and Communication Engineering is one of the largest and fastest growing fields. It covers wide range of applications that we use daily. The modern society is increasingly depending on the communication of information to make our life easier. Students taking their degree learn about the operating principles and design of devices ranging from mobile phones, wireless and satellite communication systems.",
+
+    bg: [
+      "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-11.jpg",
+      "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-12.jpg",
+      "https://www.sreekrishnaengcollege.com/assets/img/Electronics-and-Communication-Engineering-01-.jpg",
+    ],
+  };
   return (
     <div>
-      <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full h-screen flex items-center justify-center overflow-hidden ">
-        <div className="w-[70%] h-full  bg-no-repeat bg-cover  flex items-center relative">
-          <div className="absolute w-full h-full inset-0 bg-black/20"></div>
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="w-full h-full relative"
-          >
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-11.jpg)]"></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-12.jpg)]"></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/Electronics-and-Communication-Engineering-01-.jpg)]"></div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-        <div className="w-[30%] h-full bg-purple-950 relative flex items-center justify-center flex-col gap-5">
-          <div className="absolute lg:w-full w-[200%] h-[120%] bg-purple-950 rotate-[10deg] lg:rotate-[30deg] left-[-50%] lg:top-[5%] z-[1]"></div>
-
-          <div className="text-white flex flex-col gap-5 relative z-[1] top-[5%] right-[15%]">
-            <h1 className="text-[30px] font-titlefont ">
-              B.E ELECTRONICS AND COMMUNICATION ENGINEERING
-            </h1>
-            <h2 className="text-[#8843ff]">
-              NAAN MUDALVAN SCHEME - ARTIFICIAL INTELLIGENCE AND DATA SCIENCE
-              MANAGEMENT
-            </h2>
-            <p className="text-[13px] text-justify">
-              The Electronics and Communication Engineering Department, have
-              established at the equipment cost Rs. 40 lakhs, contains
-              Electronic Circuits Laboratory, Linear Integrated Circuits
-              Laboratory, Digital Electronics Laboratory, Microprocessor and
-              Micro Controller Laboratory.The department start functioning with
-              the first batch of students admitted into the department in 2011,
-              with an intake of 60 in UG program. This course has been designed
-              with an aim to meet industry requirements in the field of
-              Electronics by studying hardware and interfacing of computer
-              systems, programming skills and applications of computer emphasis
-              on latest technological development. The Electronics and
-              Communication Engineering is one of the largest and fastest
-              growing fields. It covers wide range of applications that we use
-              daily. The modern society is increasingly depending on the
-              communication of information to make our life easier. Students
-              taking their degree learn about the operating principles and
-              design of devices ranging from mobile phones, wireless and
-              satellite communication systems.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Layout1 data={data} top={"5"} />
       <div className="w-full h-[10vh] bg-purple-950 flex items-center justify-center">
         <select
           onChange={(e) => setSelOption(e.target.value)}

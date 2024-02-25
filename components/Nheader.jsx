@@ -7,57 +7,17 @@ import { CiSearch, CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import Searchbox from "./Searchbox";
 
-import { useSpring, a } from "@react-spring/web";
-import useMeasure from "react-use-measure";
-import { Container, Title, Frame, Content, toggle } from "../utils/style";
-import * as Icons from "../utils/icons";
 import { BackgroundBeams } from "@/utils/background-beams";
 import Phoneheader from "./Phoneheader";
 import Subheader from "./Subheader";
-
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
-  return ref.current;
-}
-
-function Tree({ children, name, style, defaultOpen = false }) {
-  const [isOpen, setOpen] = useState(defaultOpen);
-  const previous = usePrevious(isOpen);
-  const [ref, { height: viewHeight }] = useMeasure();
-  const { height, opacity, y } = useSpring({
-    from: { height: 0, opacity: 0, y: 0 },
-    to: {
-      height: isOpen ? viewHeight : 0,
-      opacity: isOpen ? 1 : 0,
-      y: isOpen ? 0 : 20,
-    },
-  });
-  // @ts-ignore
-  const Icon =
-    Icons[`${children ? (isOpen ? "Minus" : "Plus") : "Close"}SquareO`];
-  return (
-    <Frame>
-      <Icon
-        style={{ ...toggle, opacity: children ? 1 : 0.3 }}
-        onClick={() => setOpen(!isOpen)}
-      />
-      <Title style={style}>{name}</Title>
-      <Content
-        style={{
-          opacity,
-          height: isOpen && previous === isOpen ? "auto" : height,
-        }}
-      >
-        <a.div ref={ref} style={{ y }}>
-          {children}
-        </a.div>
-      </Content>
-    </Frame>
-  );
-}
+import {
+  AiFillClockCircle,
+  AiFillFacebook,
+  AiFillMail,
+  AiFillPhone,
+  AiFillTwitterSquare,
+  AiFillYoutube,
+} from "react-icons/ai";
 
 const Nheader = ({ scrollLength, currHeight }) => {
   const [stdAreana, setstdAreana] = useState(false);
@@ -68,8 +28,6 @@ const Nheader = ({ scrollLength, currHeight }) => {
 
   const [search, setSearch] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const [aboutb, setAboutb] = useState(false);
 
   const subHeader = [
     [
@@ -180,16 +138,54 @@ const Nheader = ({ scrollLength, currHeight }) => {
         <Phoneheader currHeight={currHeight} scrollLength={scrollLength} />
       </div>
 
-      <div className="hidden lg:block">
+      <div className="hidden lg:block relative">
+        <div
+          className={
+            scrollLength > 70
+              ? "fixed w-[30vw] h-[2rem] bg-[rgb(30,64,120)] top-[5rem] z-[9990] right-0 duration-500"
+              : "absolute w-[30vw] h-[2rem] bg-[rgb(30,64,120)] bottom-[-25vh] z-[9990] right-[20vw] duration-500"
+          }
+        >
+          <div className="w-full h-full relative flex items-center justify-around ">
+            <div className="absolute w-[3rem] h-[3rem] bottom-[.59rem] left-[-1.35rem] bg-[rgb(30,64,120)] rotate-[45deg]"></div>
+            <Link
+              href={"#"}
+              className="py-1 px-2 bg-blue-500 text-white text-[10px] rounded-lg"
+            >
+              PLACEMENT / TRAINING
+            </Link>
+            <div className="flex gap-5 text-white">
+              <AiFillFacebook size={20} />
+              <AiFillTwitterSquare size={20} />
+              <AiFillYoutube size={20} />
+            </div>
+          </div>
+        </div>
+
         <div className="w-full flex flex-col gap-10 items-center justify-center bg-transparent absolute top-0">
           <div className="w-full h-[3rem]  bg-[#1f104e] z-[999] relative flex items-center justify-center text-white">
-            Sree krishna college of engineering
+            <div className="absolute left-5 text-[12px] flex gap-2 items-center">
+              {" "}
+              <p className="flex gap-1 items-center">
+                {" "}
+                <AiFillMail /> info@sreekrishnaengcollege.com
+              </p>{" "}
+              <p className="flex gap-1 items-center">
+                | <AiFillPhone /> 9894216849 / 9443322420
+              </p>
+            </div>
+            <p>Sree krishna college of engineering</p>
+            <div className="absolute right-5 text-[12px] flex gap-2 items-center">
+              <p className="flex gap-1 items-center">
+                <AiFillClockCircle /> COUNSELLING CODE - 1438
+              </p>
+            </div>
           </div>
           <div
             className={
               scrollLength > 70
-                ? "w-[100%] h-[5rem] bg-[#1f104e] z-[999] fixed top-0 duration-700 flex items-center justify-evenly text-white rounded-none "
-                : "w-[60%] h-[5rem] bg-[#1f104e] z-[999] sticky top-0 duration-700  flex  items-center justify-evenly text-white rounded-lg"
+                ? "w-[100%] h-[5rem] bg-[#1f104e] z-[9999] fixed top-0 duration-700 flex items-center justify-evenly text-white rounded-none "
+                : "w-[60%] h-[5rem] bg-[#1f104e] z-[9999] sticky top-0 duration-700  flex  items-center justify-evenly text-white rounded-lg"
             }
           >
             <Link href="/">
@@ -302,11 +298,15 @@ const Nheader = ({ scrollLength, currHeight }) => {
               </li>
             </ul>
             {scrollLength > 70 && (
-              <button className=" flex items-center justify-center absolute right-[15%] lg:right-[5%]">
-                <button onClick={() => setSearch(true)} className="z-[999]">
-                  <CiSearch size={20} />
+              <div className=" flex items-center justify-center absolute right-[15%] lg:right-[5%]">
+                <button>
+                  <CiSearch
+                    size={20}
+                    onClick={() => setSearch(true)}
+                    className="z-[999]"
+                  />
                 </button>
-              </button>
+              </div>
             )}
             {scrollLength > 70 && (
               <div className="absolute right-[5%] lg:hidden">

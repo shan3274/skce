@@ -1,17 +1,30 @@
-import React from "react";
+"use client";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { motion } from "framer-motion";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import Bubble from "@/utils/bubble";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Bubble from "@/utils/bubble";
-
-import { Autoplay } from "swiper/modules";
+import useScroll from "./hooks/useScroll";
+import Nheader from "./Nheader";
 
 const Layout1 = ({ data, top, left, right, bottom }) => {
+  const [scrollLength, setScrollLength] = useState(0);
+  useEffect(() => {
+    setScrollLength(100);
+  }, [scrollLength]);
+  console.log("read layout");
   return (
     <>
+      <Nheader scrollLength={scrollLength} />
       <div className="w-full h-screen hidden xl:flex  justify-center overflow-hidden ">
         <div className="w-[70%] h-full  bg-no-repeat bg-cover  relative z-[-1]">
           <div className="absolute w-full h-full inset-0 bg-black/20"></div>
@@ -33,18 +46,14 @@ const Layout1 = ({ data, top, left, right, bottom }) => {
             modules={[Autoplay]}
             className="w-full h-full relative z-[0]"
           >
-            {data?.bg?.map((item) => {
-              return (
-                <SwiperSlide>
-                  <div
-                    className="lg:w-full w-[100vw] h-full relative z-[0] bg-no-repeat bg-cover"
-                    style={{ backgroundImage: `url(${item})` }}
-                  >
-                    {item}
-                  </div>
-                </SwiperSlide>
-              );
-            })}
+            {data?.bg?.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  className="lg:w-full w-[100vw] h-full relative z-[0] bg-no-repeat bg-cover"
+                  style={{ backgroundImage: `url(${item})` }}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
         <motion.div
@@ -59,7 +68,15 @@ const Layout1 = ({ data, top, left, right, bottom }) => {
             <Bubble width={"30vh"} />
           </div>
           <div className="absolute w-full h-[150%] bg-purple-950 rotate-[30deg] lg:rotate-[30deg] left-[-60%] top-[1%] t "></div>
-          <div className="incon absolute w-full h-full flex flex-col justify-center gap-4 left-[-22vh] top-0  pt-10">
+          <div
+            className="incon absolute w-full h-full flex flex-col justify-center gap-4 left-[-22vh] top-0  pt-10"
+            style={{
+              top: `${top}vh`,
+              left: `${left}vw`,
+              right: `${right}vw`,
+              bottom: `${bottom}vh`,
+            }}
+          >
             <h1 className="text-[40px] w-full font-titlefont text-white ml-[10vh]">
               {data?.h1}
             </h1>
@@ -81,7 +98,6 @@ const Layout1 = ({ data, top, left, right, bottom }) => {
         <div className="absolute w-[100vw]  h-full z-[10] bottom-[-50vh] overflow-hidden">
           <Bubble width={"50vw"} />
         </div>
-
         <div className="w-full h-[60vh]">
           <Swiper
             spaceBetween={30}
@@ -93,18 +109,14 @@ const Layout1 = ({ data, top, left, right, bottom }) => {
             modules={[Autoplay]}
             className="w-full h-full relative z-[0]"
           >
-            {data?.bg?.map((item) => {
-              return (
-                <SwiperSlide>
-                  <div
-                    className=" w-[100vw] h-full relative z-[0] bg-no-repeat bg-cover aspect-square"
-                    style={{ backgroundImage: `url(${item})` }}
-                  >
-                    {item}
-                  </div>
-                </SwiperSlide>
-              );
-            })}
+            {data?.bg?.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  className=" w-[100vw] h-full relative z-[0] bg-no-repeat bg-cover aspect-square"
+                  style={{ backgroundImage: `url(${item})` }}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
         <div className="w-full min-h-[60vh]  before:z-[1] bg-purple-950 relative before:content-[''] before:absolute before:w-[200%] before:h-[200%] before:bg-purple-950 before:top-[-20vh] lg:before:top-[-50vh]  before:rotate-[-15deg] lg:before:rotate-[-30deg]">

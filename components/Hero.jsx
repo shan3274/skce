@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import { gsap } from "gsap";
-import { motion } from "framer-motion";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import Nheader from "./Nheader";
+import useScroll from "./hooks/useScroll";
 
-const Hero = ({ scrollLength, currHeight }) => {
+const Hero = () => {
+  const scrollLength = useScroll();
+  console.log("hero rerendered");
   return (
     <div id="hero-content" className="w-full h-screen">
+      <Nheader scrollLength={scrollLength} />
       <main className=" w-full h-screen  bg-[#bababa]  overflow-hidden text-white cursor-default relative">
         <video
-          src="main.mp4"
+          src="bgv.mp4"
           autoPlay
           loop
           muted

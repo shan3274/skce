@@ -13,6 +13,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import React, { useEffect, useState, useRef } from "react";
 import { BackgroundBeams } from "@/utils/background-beams";
+import Layout1 from "@/components/Layout1";
 const Becse = () => {
   const [scrollLength, setScrollLength] = useState(0);
 
@@ -92,65 +93,21 @@ const Becse = () => {
       qualification: "MSC,M.Phil",
     },
   ];
+
+  const data = {
+    h1: "B.E- COMPUTER SCIENCE AND ENGINEERING",
+    h2: "NAAN MUDALVAN SCHEME - IOT/DATA SCIENCE/CYBER SECURITY",
+    p1: "The Computer Science and Engineering Department, have established at the equipment cost Rs. 45 lakhs, contains Computer Practice Laboratory, Object Oriented Programmes Laboratory, Data structures Laboratory, Operating System Laboratory and Data Base Management Laboratory.",
+    p2: "The department has well qualified, experienced, dedicted faculty members and Independent Library for staff & students. Our Department was ensuring better teacher student ratio so that a personal attention is given to each student. The students are provided with the facility to gain practical experience by arranging industrial visits, In-Plant Training & Software Courses. The Department is equipped with full-fledged computer labs consisting of more than 300 PC Systems. The Department also organises Guest Lectures, Seminars and training Programmes by experts from Nationaly and internationally reputed software development organizations such as TCS, CTS, IBM Wipro etc.",
+
+    bg: [
+      "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-57.jpg",
+      "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-58.jpg",
+    ],
+  };
   return (
     <div className="">
-      <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full h-screen flex items-center justify-center overflow-hidden bg-purple-950">
-        <div className="w-[70%] h-full  bg-no-repeat bg-cover  flex items-center relative">
-          <div className="absolute w-full h-full inset-0 bg-black/20"></div>
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="w-full h-full relative"
-          >
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-57.jpg)]"></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-58.jpg)]"></div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-        <div className="w-[30%] h-full  relative flex items-center justify-center flex-col gap-5 ">
-          <div className="absolute lg:w-full w-[200%] h-[120%] bg-purple-950 rotate-[10deg] lg:rotate-[30deg] left-[-50%] lg:top-[5%] z-[1]">
-            {" "}
-            <BackgroundBeams />
-          </div>
-
-          <div className="text-white flex flex-col gap-5 relative z-[1] top-[5%] right-[15%]">
-            <h1 className="text-[30px] font-titlefont ">
-              B.E- COMPUTER SCIENCE AND ENGINEERING
-            </h1>
-            <h2 className="text-[#8843ff]">
-              NAAN MUDALVAN SCHEME - IOT/DATA SCIENCE/CYBER SECURITY
-            </h2>
-            <p className="text-[13px] text-justify">
-              The Computer Science and Engineering Department, have established
-              at the equipment cost Rs. 45 lakhs, contains Computer Practice
-              Laboratory, Object Oriented Programmes Laboratory, Data structures
-              Laboratory, Operating System Laboratory and Data Base Management
-              Laboratory.
-              <br />
-              The department has well qualified, experienced, dedicted faculty
-              members and Independent Library for staff & students. Our
-              Department was ensuring better teacher student ratio so that a
-              personal attention is given to each student. The students are
-              provided with the facility to gain practical experience by
-              arranging industrial visits, In-Plant Training & Software Courses.
-              The Department is equipped with full-fledged computer labs
-              consisting of more than 300 PC Systems. The Department also
-              organises Guest Lectures, Seminars and training Programmes by
-              experts from Nationaly and internationally reputed software
-              development organizations such as TCS, CTS, IBM Wipro etc.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Layout1 data={data} top={"5"} />
 
       <div className="w-full h-[10vh] bg-purple-950 flex items-center justify-center">
         <select

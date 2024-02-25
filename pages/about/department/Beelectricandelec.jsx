@@ -12,22 +12,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import React, { useEffect, useState, useRef } from "react";
+import Layout1 from "@/components/Layout1";
 const Beelectricandelec = () => {
-  const [scrollLength, setScrollLength] = useState(0);
-
-  const [currHeight, setCurrHeight] = useState(0);
-  useEffect(() => {
-    setCurrHeight(window.innerHeight);
-    const handleScroll = () => {
-      const calculatedScrollLength = window.scrollY;
-      setScrollLength(calculatedScrollLength);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollLength]);
-
   const [selOption, setSelOption] = useState("FACULTY LIST");
 
   const sh = [
@@ -91,68 +77,19 @@ const Beelectricandelec = () => {
       qualification: "MSC,M.Phil",
     },
   ];
+
+  const data = {
+    h1: "B.E ELECTRICAL AND ELECTRONICS ENGINEERING",
+    h2: "NAAN MUDALVAN SCHEME - POWER GRID/RES",
+    p1: "The Electrical and Electronics Engineering Department, have established at the equipment cost Rs. 20 lakhs, contains Power Electronics Laboratory, Measurement and Instrumentation Laboratory, Control System Laboratory, Electrical Machines Laboratory and Electrical Circuits Laboratory. The Department of Electrical & Electronics Engineering has well-qualified and experienced faculty members with specialization in varied fields like Electrical Machines, Electrical Drives, Power Electronics, High Voltage Engineering, Power Systems and Control Systems, Senior Professional and technocrats from industry visit the department periodically and deliver special lectures on topics of current interest to the UG students.",
+    bg: [
+      "https://www.sreekrishnaengcollege.com/assets/img/Electrical-and-Electronics-Engineering-Department-01.jpg",
+      "https://www.sreekrishnaengcollege.com/assets/img/Electrical-and-Electronics-Engineering-Department-02.jpg",
+    ],
+  };
   return (
     <div>
-      <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full h-screen flex items-center justify-center overflow-hidden ">
-        <div className="w-[70%] h-full  bg-no-repeat bg-cover  flex items-center relative">
-          <div className="absolute w-full h-full inset-0 bg-black/20"></div>
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="w-full h-full relative"
-          >
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/Electrical-and-Electronics-Engineering-Department-01.jpg)]"></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/Electrical-and-Electronics-Engineering-Department-02.jpg)]"></div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-        <div className="w-[30%] h-full bg-purple-950 relative flex items-center justify-center flex-col gap-5">
-          <div className="absolute lg:w-full w-[200%] h-[120%] bg-purple-950 rotate-[10deg] lg:rotate-[30deg] left-[-50%] lg:top-[5%] z-[1]"></div>
-
-          <div className="text-white flex flex-col gap-5 relative z-[1] top-[5%] right-[15%]">
-            <h1 className="text-[30px] font-titlefont ">
-              B.E ELECTRICAL AND ELECTRONICS ENGINEERING
-            </h1>
-            <h2 className="text-[#8843ff]">
-              NAAN MUDALVAN SCHEME - POWER GRID/RES
-            </h2>
-            <p className="text-[13px] text-justify">
-              The Electrical and Electronics Engineering Department, have
-              established at the equipment cost Rs. 20 lakhs, contains Power
-              Electronics Laboratory, Measurement and Instrumentation
-              Laboratory, Control System Laboratory, Electrical Machines
-              Laboratory and Electrical Circuits Laboratory. The Department of
-              Electrical & Electronics Engineering has well-qualified and
-              experienced faculty members with specialization in varied fields
-              like Electrical Machines, Electrical Drives, Power Electronics,
-              High Voltage Engineering, Power Systems and Control Systems,
-              Senior Professional and technocrats from industry visit the
-              department periodically and deliver special lectures on topics of
-              current interest to the UG students.
-              <br />
-              The areas of specialization include Communication Systems,
-              Semiconductor Electronics, Control & Guidance, Applied
-              Electronics, VLSI Design. Our Mission is to educate students from
-              all over India, including those from the local and rural areas, so
-              that they become enlightened individuals, improving the living
-              standards of their families, industry and society. We provide
-              individual attention and world class quality of education. The EEE
-              Department has been organizing industrial visits, guest lectures
-              and the IEEE Chapter. The Department has well equipped facilities
-              like Standard labs and a Seminar hall.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Layout1 data={data} />
       <div className="w-full h-[10vh] bg-purple-950 flex items-center justify-center">
         <select
           onChange={(e) => setSelOption(e.target.value)}

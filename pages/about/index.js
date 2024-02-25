@@ -14,20 +14,7 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination, Parallax } from "swiper/modules";
 
 const index = () => {
-  const [scrollLength, setScrollLength] = useState(0);
-
-  const [currHeight, setCurrHeight] = useState(0);
-  useEffect(() => {
-    setCurrHeight(window.innerHeight);
-    const handleScroll = () => {
-      const calculatedScrollLength = window.scrollY;
-      setScrollLength(calculatedScrollLength);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollLength]);
+  console.log("something went wrong");
 
   const data = {
     h1: "Welcome To",
@@ -41,7 +28,6 @@ const index = () => {
   };
   return (
     <div>
-      <Nheader scrollLength={scrollLength} currHeight={currHeight} />
       <Layout1 data={data} />
       <div className=" w-full sm:w-full flex items-center justify-center h-[20vh] text-[#8541FB]">
         <h1 className="font-titlefont text-[50px] font-[700]">

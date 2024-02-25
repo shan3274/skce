@@ -12,22 +12,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import React, { useEffect, useState, useRef } from "react";
+import Layout1 from "@/components/Layout1";
 const Bemechabical = () => {
-  const [scrollLength, setScrollLength] = useState(0);
-
-  const [currHeight, setCurrHeight] = useState(0);
-  useEffect(() => {
-    setCurrHeight(window.innerHeight);
-    const handleScroll = () => {
-      const calculatedScrollLength = window.scrollY;
-      setScrollLength(calculatedScrollLength);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollLength]);
-
   const [selOption, setSelOption] = useState("FACULTY LIST");
 
   const sh = [
@@ -91,68 +77,21 @@ const Bemechabical = () => {
       qualification: "MSC,M.Phil",
     },
   ];
+
+  const data = {
+    h1: "B.E MECHANICAL ENGINEERING",
+    h2: "NAAN MUDALVAN SCHEME - ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING",
+    p1: "Mechanical Engineering Department, have established at the equipment cost of Rs. 65 lakhs, contains Manufacturing Technology Laboratory, Engineering Practice Laboratory, Fluid Mechanics Laboratory, Strength of Material laboratory and Computer Aided Design Laboratory.Mechanical engineering is the second largest engineering discipline and one of the oldest. Mechanical engineers apply the principles of mechanics and energy to the design of machines and devices. Mechanical engineers are involved with the design of structures, operation and maintenance of mechanical systems. They are involved in the designing and fabricating of automobiles, trucks, airplanes, and trains for transportation; tractors for food production; interplanetary space vehicles; copying machines fax machines, staplers, used in the office; and lathes, milling machines, grinders, and drill presses used in the manufacture of goods; and just about anything that moves. Mechanical engineers also design and operate power plants and are concerned with the economical combustion of fuels, the conversion of heat energy into mechanical energy, and the use of mechanical energy to perform useful work. Their scope of work is truly large.",
+
+    bg: [
+      "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-09.jpg",
+      "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-04.jpg",
+      "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-08.jpg",
+    ],
+  };
   return (
     <div>
-      <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full h-screen flex items-center justify-center overflow-hidden ">
-        <div className="w-[70%] h-full  bg-no-repeat bg-cover  flex items-center relative">
-          <div className="absolute w-full h-full inset-0 bg-black/20"></div>
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="w-full h-full relative"
-          >
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-09.jpg)]"></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-04.jpg)]"></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="absolute z-[0] w-full h-full bg-no-repeat bg-cover bg-[url(https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-08.jpg)]"></div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-        <div className="w-[30%] h-full bg-purple-950 relative flex items-center justify-center flex-col gap-5">
-          <div className="absolute lg:w-full w-[200%] h-[120%] bg-purple-950 rotate-[10deg] lg:rotate-[30deg] left-[-50%] lg:top-[5%] z-[1]"></div>
-
-          <div className="text-white flex flex-col gap-5 relative z-[1] top-[5%] right-[15%]">
-            <h1 className="text-[30px] font-titlefont ">
-              B.E MECHANICAL ENGINEERING
-            </h1>
-            <h2 className="text-[#8843ff]">
-              NAAN MUDALVAN SCHEME - ARTIFICIAL INTELLIGENCE AND MACHINE
-              LEARNING
-            </h2>
-            <p className="text-[13px] text-justify">
-              Mechanical Engineering Department, have established at the
-              equipment cost of Rs. 65 lakhs, contains Manufacturing Technology
-              Laboratory, Engineering Practice Laboratory, Fluid Mechanics
-              Laboratory, Strength of Material laboratory and Computer Aided
-              Design Laboratory.Mechanical engineering is the second largest
-              engineering discipline and one of the oldest. Mechanical engineers
-              apply the principles of mechanics and energy to the design of
-              machines and devices. Mechanical engineers are involved with the
-              design of structures, operation and maintenance of mechanical
-              systems. They are involved in the designing and fabricating of
-              automobiles, trucks, airplanes, and trains for transportation;
-              tractors for food production; interplanetary space vehicles;
-              copying machines fax machines, staplers, used in the office; and
-              lathes, milling machines, grinders, and drill presses used in the
-              manufacture of goods; and just about anything that moves.
-              Mechanical engineers also design and operate power plants and are
-              concerned with the economical combustion of fuels, the conversion
-              of heat energy into mechanical energy, and the use of mechanical
-              energy to perform useful work. Their scope of work is truly large.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Layout1 data={data} />
       <div className="w-full h-[10vh] bg-purple-950 flex items-center justify-center">
         <select
           onChange={(e) => setSelOption(e.target.value)}
