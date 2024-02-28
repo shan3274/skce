@@ -3,6 +3,7 @@ import Nheader from "@/components/Nheader";
 import Layout1 from "@/components/Layout1";
 import { BackgroundBeams } from "@/utils/background-beams";
 import React, { useEffect, useState } from "react";
+import { sportdata } from "@/utils/facilitiesdata";
 
 const Sports = () => {
   const [scrollLength, setScrollLength] = useState(0);
@@ -12,15 +13,6 @@ const Sports = () => {
     setCurrHeight(window.innerHeight);
     setScrollLength(100);
   }, [scrollLength]);
-
-  const data = {
-    h1: "SPORTS",
-    p1: "As recreation for students we conduct games every week. This helps our students to keep themselves hale and healthy.",
-    bg: [
-      "https://www.sreekrishnaengcollege.com/assets/img/50.jpg",
-      "https://www.sreekrishnaengcollege.com/assets/img/48.jpg",
-    ],
-  };
 
   const img = [
     "https://www.sreekrishnaengcollege.com/assets/img/49.jpg",
@@ -48,7 +40,7 @@ const Sports = () => {
   return (
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <Layout1 data={data} />
+      <Layout1 data={sportdata} />
       <div className="w-full min-h-screen overflow-scroll flex flex-col items-center justify-start gap-5 relative top-[15vh]  ">
         <div className="fixed top-0 w-full h-screen  z-[-2] bg-[#282828]">
           <BackgroundBeams />

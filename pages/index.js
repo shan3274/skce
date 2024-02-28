@@ -1,22 +1,16 @@
-import React, {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { gsap } from "gsap";
 import Hero from "@/components/Hero";
-import Facilities from "@/components/Facilities";
+
 import Help from "@/components/Help";
 import Footer from "@/components/Footer";
-import Nheader from "@/components/Nheader";
+
 import Chairman from "@/components/Chairman";
-import Nloader from "@/components/Nloader";
+
 import Chatbox from "@/components/Chatbox";
 import Result from "@/components/Result";
 import Sliders from "@/components/Sliders";
+import Slidders1 from "@/components/Slidders1";
 
 const AnimatedLoader = React.memo(({ setLoader }) => {
   const animateLoader = useCallback(() => {
@@ -72,11 +66,10 @@ const Index = () => {
     <>
       <div id="main-container" className="bg-transparent">
         {loader && <AnimatedLoader setLoader={setLoader} />}
-
         <Hero />
         <Result />
         <Chairman />
-        <Sliders />
+        <Slidders1 />
         <Help />
         <Footer />
         <Chatbox />

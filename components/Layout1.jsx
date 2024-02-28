@@ -1,19 +1,14 @@
 "use client";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useEffect, useState } from "react";
 import Bubble from "@/utils/bubble";
+import { motion } from "framer-motion";
+
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import useScroll from "./hooks/useScroll";
+
 import Nheader from "./Nheader";
 
 const Layout1 = ({ data, top, left, right, bottom }) => {
@@ -21,7 +16,7 @@ const Layout1 = ({ data, top, left, right, bottom }) => {
   useEffect(() => {
     setScrollLength(100);
   }, [scrollLength]);
-  console.log("read layout");
+
   return (
     <>
       <Nheader scrollLength={scrollLength} />

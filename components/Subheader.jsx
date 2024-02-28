@@ -9,11 +9,11 @@ const Subheader = ({ isMenuopen, data, scrollLength }) => {
       className={
         isMenuopen || isOpen
           ? scrollLength > 70
-            ? "w-[70vw] h-[50vh] fixed left-[15vw] top-[11vh] bg-white z-[999] overflow-hidden duration-300 rounded-lg drop-shadow-lg flex justify-around "
-            : "w-[70vw] h-[50vh] fixed left-[15vw] top-[22vh] bg-white z-[999] overflow-hidden duration-300 rounded-lg drop-shadow-lg flex justify-around"
+            ? "w-[70vw] h-[50vh] absolute left-[15vw] top-[5rem] bg-white z-[999] overflow-hidden duration-300 rounded-lg drop-shadow-lg flex justify-around "
+            : "w-[70vw] h-[50vh] absolute top-[5rem] left-0 bg-white z-[999] overflow-hidden duration-300 rounded-lg drop-shadow-lg flex justify-around"
           : scrollLength > 70
-          ? "w-[70vw] h-[0vh] fixed left-[15vw] top-[11vh] bg-white z-[999] overflow-hidden duration-300 flex justify-around"
-          : "w-[70vw] h-[0vh] fixed left-[15vw] top-[22vh] bg-white z-[999] overflow-hidden duration-300 flex justify-around"
+          ? "w-[70vw] h-[0vh] absolute left-[15vw] top-[5rem] bg-white z-[999] overflow-hidden duration-300 flex justify-around"
+          : "w-[70vw] h-[0vh] absolute left-[15vw] top-[5rem] bg-white z-[999] overflow-hidden duration-300 flex justify-around"
       }
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}

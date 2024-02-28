@@ -223,3 +223,11 @@ body.loading {
 .imgshd {
   box-shadow: 10px 10px 20px black;
 }
+
+.clippath {
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+.c-clip1 {
+  clip-path: polygon(0 0, 16% 0, 100% 100%, 84% 100%);
+}

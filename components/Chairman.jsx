@@ -1,75 +1,27 @@
-import React from "react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { BackgroundBeams } from "@/utils/background-beams";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
-import Bubble from "@/utils/bubble";
-
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Chairman = () => {
+  const [interval, setInterval] = useState(0);
+  useEffect(() => {
+    let i = 0;
+    setInterval(() => {
+      setInterval(interval + 1);
+    }, 1000);
+  }, []);
+  console.log(interval);
+  let img1 = "https://www.sreekrishnaengcollege.com/assets/img/chairman.jpg";
   return (
-    <div className="w-full h-screen bg-[#1E4078] flex lg:flex-row flex-col-reverse relative overflow-hidden ">
-      <div className="absolute w-full h-full top-0 left-0">
-        <Bubble />
-      </div>
-
-      <div className="lg:absolute left-[20vh] top-0 lg:w-[30%] h-screen flex flex-col items-start justify-center gap-2 text-white p-10">
-        <h1 className="lg:text-[35px] text-[30px] font-[700]">
-          Play on the Stage or on the Field
-        </h1>
-        <h2 className="text-[20px] font-[700]">Conservatory of Music</h2>
-        <p className="lg:text-[15px] text-[13px]">
-          Wheaton's world-renowned Conservatory of Music houses nine ensembles
-          that are open to all Wheaton students, regardless of major. Choose
-          from Chamber Music, Jazz or Percussion Ensemble, Concert Choir, Men's
-          Glee Club, Women's Chorale, Symphonic Band, or Opera Mainstage.
-        </p>
-        <h2 className="text-[20px] font-[700]">Thunder Athletics</h2>
-        <p className="g:text-[15px] text-[13px]">
-          Over 25% of Wheaton’s student body participates in athletics, and it's
-          no wonder with so many options available, including baseball,
-          basketball, football, cross country, golf, soccer, swimming, tennis,
-          softball, track and field, volleyball, and wrestling. Our Division III
-          athletes are conference and national champions. But, most importantly,
-          we pursue Christian faith, character, and leadership through
-          competitive sports programs that “run the race to win.”
-        </p>
-      </div>
-
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay]}
-        className=" w-full h-full relative flex justify-end "
-      >
-        <SwiperSlide>
-          <div className="w-full h-full flex items-end justify-end">
-            <div className="lg:w-[50%] relative h-[70%] flex items-center justify-center">
-              <img
-                src="https://www.sreekrishnaengcollege.com/assets/img/gallery/1.jpg"
-                alt=""
-                className="w-[90%]  rounded-lg drop-shadow-lg"
-              />
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-full h-full flex items-end justify-end">
-            <div className="lg:w-[50%] relative h-[70%] flex items-center justify-center">
-              <img
-                src="https://www.sreekrishnaengcollege.com/assets/img/gallery/3.jpg"
-                alt=""
-                className="w-[90%]  rounded-lg drop-shadow-lg"
-              />
-            </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+    <div className="w-[full] h-[80vh] bg-[#dedede] relative overflow-hidden flex items-center justify-center">
+      <BackgroundBeams />
+      <Image
+        loader={() => (img1 = img1)}
+        src={img1}
+        width={0}
+        height={0}
+        className="w-[80%] object-cover z-[1]  drop-shadow-2xl relative "
+      />
     </div>
   );
 };

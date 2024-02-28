@@ -35,7 +35,7 @@ const index = () => {
   };
   return (
     <div>
-      <Nheader scrollLength={scrollLength} currHeight={currHeight} />
+     
       <Layout1 data={data} />
       <div className="w-full h-[80vh] lg:flex-row flex-col flex items-center justify-center gap-5 bg-[#dedede]">
         <div className="w-[40%] h-[70%] flex flex-col justify-around ">
