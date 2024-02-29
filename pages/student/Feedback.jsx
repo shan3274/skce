@@ -23,21 +23,19 @@ const Feedback = () => {
     <div>
       {" "}
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full min-h-screen flex  relative overflow-hidden bg-[#d2d2d2]">
-        <div className="fix w-[20%] h-screen bg-[#211772] flex flex-col items-center justify-center gap-5">
+      <div className="w-full min-h-screen flex items-center justify-center  relative overflow-hidden bg-[url(https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover ">
+        <div className="w-[80%] min-h-screen overflow-scroll duration-300 flex flex-col items-center pt-[25vh] pb-10 gap-10">
           <select
             onChange={(e) => setSelValue(e.target.value)}
             name=""
             id=""
-            className="relative  bg-black/50  h-[40px]  rounded-lg backdrop-blur-md text-white text-[15px] font-titlefont w-[90%]"
+            className="relative w-[300px] text-center bg-black/50  h-[40px]  rounded-lg backdrop-blur-md text-white text-[15px] font-titlefont "
           >
             <option value="STUDENT">STUDENT</option>
             <option value="FACULTY">FACULTY</option>
           </select>
-        </div>
-        <div className="w-[80%] min-h-screen overflow-scroll duration-300 flex flex-col items-center pt-[25vh] pb-10 gap-10 bg-[url(https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] ">
           {selValue == "STUDENT" ? (
-            <div className="w-[80%] h-[100vh] bg-black/30 backdrop-blur-lg relative z-[1] rounded-xl flex flex-col items-center justify-around py-10">
+            <div className="lg:w-[55%] w-[95%] h-[100vh] bg-black/30 backdrop-blur-lg relative z-[1] rounded-[50px] flex flex-col items-center justify-around py-10">
               <input
                 type="text"
                 placeholder="Student Id"
@@ -109,7 +107,7 @@ const Feedback = () => {
               </div>
             </div>
           ) : (
-            <div className="w-[80%] min-h-[100vh] bg-black/30 backdrop-blur-lg relative z-[1] rounded-xl flex flex-col items-center gap-5 py-10">
+            <div className="lg:w-[55%]  h-[100vh] bg-black/30 backdrop-blur-lg relative z-[1] rounded-[50px] flex flex-col items-center justify-around py-10">
               <input
                 type="text"
                 placeholder="Faculty Id"
@@ -214,9 +212,6 @@ const Feedback = () => {
             </div>
           )}
         </div>
-
-        <div className="absolute top-[50vh] right-[-10vw] w-[30%] h-screen bg-[#100b3a] rotate-[45deg]"></div>
-        <div className="absolute bottom-[52vh] right-[-5vw] w-[30%] h-screen bg-[#5542fda9] rotate-[-65deg]"></div>
       </div>
       <Footer />
     </div>

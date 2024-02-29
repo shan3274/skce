@@ -13,6 +13,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination, Parallax } from "swiper/modules";
 
+import Head from "next/head";
+
 const index = () => {
   console.log("something went wrong");
 
@@ -28,6 +30,9 @@ const index = () => {
   };
   return (
     <div>
+      <Head>
+        <title>about</title>
+      </Head>
       <Layout1 data={data} />
       <div className=" w-full sm:w-full flex items-center justify-center h-[20vh] text-[#8541FB]">
         <h1 className="font-titlefont text-[50px] font-[700]">

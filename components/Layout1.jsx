@@ -20,7 +20,7 @@ const Layout1 = ({ data, top, left, right, bottom }) => {
   return (
     <>
       <Nheader scrollLength={scrollLength} />
-      <div className="w-full h-screen hidden xl:flex  justify-center overflow-hidden ">
+      <div className="w-full h-[70vh] hidden xl:flex  justify-center overflow-hidden ">
         <div className="w-[70%] h-full  bg-no-repeat bg-cover  relative z-[-1]">
           <div className="absolute w-full h-full inset-0 bg-black/20"></div>
           {data?.nameplate && (

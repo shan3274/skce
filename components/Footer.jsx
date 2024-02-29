@@ -15,14 +15,13 @@ const Footer = ({ scrollLength, currHeight }) => {
       transition={{ duration: 1 }}
       className="w-full min-h-[60vh] overflow-hidden  border-t drop-shadow-lg flex flex-col items-center justify-center z-[999] bg-[#1f1f1f] relative bottom-[50px] text-white"
     >
-      <Meteors number={30} />
       <>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           animate={{ y: -50 }}
           transition={{ duration: 1 }}
-          className="w-[80%] min-h-[54vh] flex items-center justify-center relative top-[50px] lg:flex-row flex-col"
+          className="w-[80%] min-h-[54vh] flex items-center justify-center relative top-[50px] lg:flex-row flex-col "
         >
           <div className="lg:w-[60%] min-h-[54vh]  flex items-center justify-evenly ">
             <div className="w-[45%] h-[50vh] flex flex-col justify-evenly text-[13px] ">
@@ -52,7 +51,6 @@ const Footer = ({ scrollLength, currHeight }) => {
             </div>
           </div>
           <div className="lg:w-[40%] w-[100%] h-[80%] flex flex-col justify-evenly lg:gap-0 gap-2 mb-10 lg:items-center text-[15px] relative">
-            <Meteors number={30} />
             <h1>Contact us</h1>
             <input
               type="text"

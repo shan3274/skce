@@ -39,7 +39,7 @@ const Nheader = ({ scrollLength, currHeight }) => {
 
       <div className="hidden lg:block relative">
         <div className="w-full flex flex-col gap-10 items-center justify-center bg-transparent absolute top-0">
-          <div className="w-full h-[3rem]  bg-[#1f104e] z-[999] relative flex items-center justify-center text-white">
+          <div className="w-full h-[3rem]  bg-[#0A2647] z-[999] relative flex items-center justify-center text-white">
             <div className="absolute left-5 text-[12px] flex gap-2 items-center">
               {" "}
               <p className="flex gap-1 items-center">
@@ -60,13 +60,13 @@ const Nheader = ({ scrollLength, currHeight }) => {
           <div
             className={
               scrollLength > 70
-                ? "w-[100%] h-[5rem] bg-[#1f104e] z-[9999] fixed top-0 duration-700 flex items-center justify-evenly text-white rounded-none "
-                : "w-[60%] h-[5rem] bg-[#1f104e] z-[9999] sticky top-0 duration-700  flex  items-center justify-evenly text-white rounded-lg "
+                ? "w-[100%] h-[5rem] bg-[#0A2647] z-[9999] fixed top-0 duration-700 flex items-center justify-evenly text-white rounded-none "
+                : "w-[60%] h-[5rem] bg-[#0A2647] z-[9999] sticky top-0 duration-700  flex  items-center justify-evenly text-white rounded-lg  rounded-br-none "
             }
           >
             <div className="w-full h-full relative flex items-center justify-evenly">
-              <div className="absolute w-[30%] h-[2rem] bg-[rgb(30,64,120)] right-0 top-[100%] rounded-sm ">
-                <div className="w-full h-full relative bg-[rgb(30,64,120)] flex items-center justify-around rounded-sm ">
+              <div className="absolute w-[30%] h-[2rem] bg-[#144272] right-0 top-[100%] rounded-sm ">
+                <div className="w-full h-full relative bg-[#144272] flex items-center justify-around rounded-sm ">
                   <div
                     className={
                       scrollLength > 70
@@ -76,7 +76,7 @@ const Nheader = ({ scrollLength, currHeight }) => {
                   ></div>
                   <Link
                     href={"#"}
-                    className="py-1 px-2 bg-blue-500 text-white text-[10px] rounded-lg"
+                    className="py-1 px-2 bg-[#205295] text-white text-[8px] rounded-lg "
                   >
                     PLACEMENT / TRAINING
                   </Link>
@@ -98,8 +98,8 @@ const Nheader = ({ scrollLength, currHeight }) => {
               <ul
                 className={
                   scrollLength > 70
-                    ? "lg:flex  h-full  hidden gap-2 text-[12px] items-center justify-evenly"
-                    : "lg:flex h-full  hidden gap-2 text-[12px] items-center justify-evenly"
+                    ? "lg:flex  h-full hidden gap-2 text-[12px] items-center justify-evenly font-serif"
+                    : "lg:flex h-full  hidden gap-2 text-[12px] items-center justify-evenly font-serif"
                 }
               >
                 <li
@@ -109,9 +109,9 @@ const Nheader = ({ scrollLength, currHeight }) => {
                 >
                   <Link
                     href="/about"
-                    className="hover:scale-[1.02] duration-300"
+                    className="hover:scale-[1.02] duration-300 font-serif"
                   >
-                    About SKCE
+                    ABOUT SKCE
                   </Link>
                 </li>
                 <Subheader
@@ -120,22 +120,25 @@ const Nheader = ({ scrollLength, currHeight }) => {
                   scrollLength={scrollLength}
                 />
                 <li
-                  className="relative  hover:bg-white hover:text-black h-[30px] px-[1vw] flex items-center justify-center  duration-300 rounded-lg hover:scale-[1.05] z-[10]"
+                  className=" relative hover:bg-white  hover:text-black h-[30px] px-[1vw] flex items-center justify-center  duration-300 rounded-lg hover:scale-[1.05] z-[10]"
                   onMouseEnter={() => setstdAreana(true)}
                   onMouseLeave={() => setstdAreana(false)}
                 >
-                  <Link href="#" className="hover:scale-[1.02] duration-300">
+                  <Link
+                    href="#"
+                    className="hover:scale-[1.02] duration-300 font-serif"
+                  >
                     STUDENT ARENA
                   </Link>
                   <div
                     className={
                       stdAreana
-                        ? ` absolute top-[8vh] left-0 duration-300 w-[15vw] h-[15vh]`
-                        : "absolute top-[8vh] left-0 w-[15vw] h-0 duration-300  overflow-hidden"
+                        ? ` absolute top-[3.3rem] left-0 duration-300 w-[15vw] h-[15vh]`
+                        : "absolute top-[3.3rem] left-0 w-[15vw] h-0 duration-300  overflow-hidden"
                     }
                   >
                     <ul
-                      className={`bg-white text-black w-full h-full relative  flex flex-col items-center justify-around rounded-md py-[2vh] gap-2 drop-shadow-md border`}
+                      className={`bg-white/30 backdrop-blur-lg text-[15px] text-black w-full h-full relative  flex flex-col items-center justify-around rounded-md py-[2vh] gap-2 drop-shadow-md border`}
                     >
                       <li>
                         <Link href="/student/Feedback">Student Feedback</Link>
@@ -154,16 +157,18 @@ const Nheader = ({ scrollLength, currHeight }) => {
                   onMouseEnter={() => setAdm(true)}
                   onMouseLeave={() => setAdm(false)}
                 >
-                  <Link href="#">ADMISSIONS</Link>
+                  <Link href="#" className="font-serif">
+                    ADMISSIONS
+                  </Link>
                   <div
                     className={
                       adm
-                        ? ` absolute top-[8vh] left-0 duration-300 w-[15vw] h-[15vh]`
-                        : "absolute top-[8vh] left-0 w-[15vw] h-0 duration-300  overflow-hidden"
+                        ? ` absolute top-[3.3rem] left-0 duration-300 w-[15vw] h-[15vh]`
+                        : "absolute top-[3.3rem] left-0 w-[15vw] h-0 duration-300  overflow-hidden"
                     }
                   >
                     <ul
-                      className={`bg-white text-black w-full h-full relative  flex flex-col items-center justify-around rounded-md py-[2vh] gap-2 drop-shadow-md border`}
+                      className={`bg-white/30 backdrop-blur-lg text-[15px] text-black w-full h-full relative  flex flex-col items-center justify-around rounded-md py-[2vh] gap-2 drop-shadow-md border`}
                     >
                       <li>
                         <Link href="#">example</Link>
@@ -182,19 +187,23 @@ const Nheader = ({ scrollLength, currHeight }) => {
                   onMouseEnter={() => setGallery(true)}
                   onMouseLeave={() => setGallery(false)}
                 >
-                  <Link href="/gallery">GALLERY</Link>
+                  <Link href="/gallery" className="font-serif">
+                    GALLERY
+                  </Link>
                 </li>
                 <li
                   className="relative  hover:bg-white hover:text-black h-[30px] px-[1vw] flex items-center justify-center  duration-300 rounded-lg hover:scale-[1.05] z-[10]"
                   onMouseEnter={() => setContact(true)}
                   onMouseLeave={() => setContact(false)}
                 >
-                  <Link href="/contact">CONTACT US</Link>
+                  <Link href="/contact" className="font-serif">
+                    CONTACT US
+                  </Link>
                   <div
                     className={
                       contact
-                        ? ` absolute top-[8vh] left-0 duration-300 w-[15vw] h-[15vh]`
-                        : "absolute top-[8vh] left-0 w-[15vw] h-0 duration-300  overflow-hidden"
+                        ? ` absolute top-[3.3rem] left-0 duration-300 w-[15vw] h-[15vh]`
+                        : "absolute top-[3.3rem] left-0 w-[15vw] h-0 duration-300  overflow-hidden"
                     }
                   ></div>
                 </li>

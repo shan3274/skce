@@ -78,7 +78,7 @@ const Slidders1 = () => {
                 className=" w-full h-[50vh] object-cover rounded-2xl drop-shadow-2xl"
               />
               <Link href={item?.pathName}>
-                <div className="absolute inset-0 z-[10] w-full h-[50vh] bg-black/10 flex flex-col justify-end pb-5 pl-5 gap-5 rounded-2xl">
+                <div className="absolute inset-0 z-[10] w-full h-[50vh] bg-black/20 flex flex-col justify-end pb-5 pl-5 gap-5 rounded-2xl">
                   <motion.h1 className="text-black font-michroma bg-white/80 backdrop-blur-xl w-[30%] text-[15px] py-2 pl-5 rounded-lg ">
                     {item?.h1}
                   </motion.h1>

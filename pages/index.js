@@ -1,10 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { gsap } from "gsap";
 import Hero from "@/components/Hero";
-
 import Help from "@/components/Help";
 import Footer from "@/components/Footer";
-
 import Chairman from "@/components/Chairman";
 
 import Chatbox from "@/components/Chatbox";
@@ -12,6 +10,8 @@ import Result from "@/components/Result";
 import Sliders from "@/components/Sliders";
 import Slidders1 from "@/components/Slidders1";
 
+import Head from "next/head";
+import Section1 from "@/components/Section1";
 const AnimatedLoader = React.memo(({ setLoader }) => {
   const animateLoader = useCallback(() => {
     const loadingpageAnimation = gsap.fromTo(
@@ -60,16 +60,17 @@ const AnimatedLoader = React.memo(({ setLoader }) => {
 const Index = () => {
   const [loader, setLoader] = useState(true);
 
-  console.log("re");
-
   return (
     <>
       <div id="main-container" className="bg-transparent">
+        <Head>
+          <title>SKCE</title>
+        </Head>
         {loader && <AnimatedLoader setLoader={setLoader} />}
         <Hero />
         <Result />
         <Chairman />
-        <Slidders1 />
+        <Section1 />
         <Help />
         <Footer />
         <Chatbox />
