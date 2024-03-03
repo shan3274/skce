@@ -254,3 +254,7 @@ body.loading {
 .c-clip1 {
   clip-path: polygon(0 0, 16% 0, 100% 100%, 84% 100%);
 }
+
+.sidel1 {
+  clip-path: polygon(19% 0, 100% 0, 100% 100%, 0 100%);
+}

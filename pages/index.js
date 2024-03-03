@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  Suspense,
+} from "react";
 import { gsap } from "gsap";
 import Hero from "@/components/Hero";
 import Help from "@/components/Help";
@@ -12,6 +18,7 @@ import Slidders1 from "@/components/Slidders1";
 
 import Head from "next/head";
 import Section1 from "@/components/Section1";
+import Section2 from "@/components/Section2";
 const AnimatedLoader = React.memo(({ setLoader }) => {
   const animateLoader = useCallback(() => {
     const loadingpageAnimation = gsap.fromTo(
@@ -70,7 +77,7 @@ const Index = () => {
         <Hero />
         <Result />
         <Chairman />
-        <Section1 />
+        <Section2 />
         <Help />
         <Footer />
         <Chatbox />

@@ -1,0 +1,127 @@
+import React, { useEffect, useState, useReducer } from "react";
+import {
+  canteendata,
+  healthcaredata,
+  hosteldata,
+  internetdata,
+  librarydata,
+  sportdata,
+  transportdata,
+} from "@/utils/facilitiesdata";
+import {
+  MdHotel,
+  MdOutlineHealthAndSafety,
+  MdOutlineLunchDining,
+  MdOutlineSportsCricket,
+} from "react-icons/md";
+import { FaInternetExplorer } from "react-icons/fa";
+import { IoBus, IoLibraryOutline } from "react-icons/io5";
+
+const data = [
+  canteendata,
+  healthcaredata,
+  hosteldata,
+  transportdata,
+  librarydata,
+  sportdata,
+];
+
+// Reducer function to handle state updates
+const boxesReducer = (state, action) => {
+  switch (action.type) {
+    case "TOGGLE":
+      return state.map((box, index) => (index === action.index ? !box : box));
+    case "REVERT":
+      return state.map((box, index) => (index === action.index ? !box : box));
+    default:
+      return state;
+  }
+};
+
+const Section2 = () => {
+  const [boxes, dispatch] = useReducer(
+    boxesReducer,
+    Array(data.length).fill(true)
+  );
+
+  const toggleBox = (index) => {
+    dispatch({ type: "TOGGLE", index });
+  };
+
+  const revertBox = (index) => {
+    dispatch({ type: "REVERT", index });
+  };
+
+  let [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let i = -1;
+    setInterval(() => {
+      if (i > 7) i = -1;
+      let value = i++;
+      setCount(value);
+    }, 3000);
+  }, []);
+
+  useEffect(() => {
+    revertBox(count - 1);
+    toggleBox(count);
+  }, [count]);
+  console.log(count);
+  return (
+    <div className="w-full min-h-[80vh] flex items-center justify-center py-10 bg-[#ffffff]">
+      <div className="w-[80%] min-h-[75vh] flex items-center justify-start pl-10 gap-5 flex-wrap">
+        {data.map((item, key) => (
+          <div
+            key={key}
+            className="w-[400px] h-[350px] bg-white rounded-xl relative overflow-hidden flex items-center justify-center gap-5 flex-col drop-shadow-xl border"
+            onMouseEnter={() => toggleBox(key)}
+            onMouseLeave={() => revertBox(key)}
+          >
+            <img
+              src={item?.bg[0]}
+              className={
+                !boxes[key]
+                  ? "absolute top-[0%] left-0 duration-300 aspect-[1/1]"
+                  : "absolute top-[-120%] left-0 duration-300 aspect-[1/1]"
+              }
+            />
+            <div
+              className={
+                !boxes[key]
+                  ? "text-[15px] font-serif absolute text-center bottom-0  w-[90%]  duration-300 bg-white/50 backdrop-blur-lg rounded-2xl p-5 mb-5 drop-shadow-xl"
+                  : "text-[15px] font-serif absolute text-center bottom-[-100%] w-[90%]  duration-300 bg-white/50 backdrop-blur-lg rounded-2xl p-5 mb-5 drop-shadow-xl"
+              }
+            >
+              {item.h1}
+            </div>
+
+            {item.h1 == "CANTEEN" && (
+              <MdOutlineLunchDining size={100} color="#0E2647" />
+            )}
+            {item.h1 == "HEALTH CARE" && (
+              <MdOutlineHealthAndSafety size={100} color="#0E2647" />
+            )}
+            {item.h1 == "HOSTEL" && <MdHotel size={100} color="#0E2647" />}
+            {item.h1 == "INTERNET" && (
+              <FaInternetExplorer size={100} color="#0E2647" />
+            )}
+            {item.h1 == "LIBRARY" && (
+              <IoLibraryOutline size={100} color="#0E2647" />
+            )}
+            {item.h1 == "SPORTS" && (
+              <MdOutlineSportsCricket size={100} color="#0E2647" />
+            )}
+            {item.h1 == "TRANSPORT" && <IoBus size={100} color="#0E2647" />}
+            <div className="text-[15px] font-serif">{item.h1}</div>
+            <div className="w-[90%] text-[12px] line-clamp-2 text-justify">
+              {item.p1}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Section2;

@@ -51,7 +51,7 @@ export const ImagesSlider = ({
       .catch((error) => console.error("Failed to load images", error));
   };
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (KeyboardEvent) => {
       if (event.key === "ArrowRight") {
         handleNext();
       } else if (event.key === "ArrowLeft") {
@@ -123,7 +123,7 @@ export const ImagesSlider = ({
       {areImagesLoaded && children}
       {areImagesLoaded && overlay && (
         <div
-          className={cn("absolute inset-0 bg-black/10 z-40", overlayClassName)}
+          className={cn("absolute inset-0 bg-black/60 z-40", overlayClassName)}
         />
       )}
 
