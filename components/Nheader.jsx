@@ -115,8 +115,8 @@ const Nheader = ({ scrollLength, currHeight }) => {
                   </Link>
                 </li>
                 <Subheader
-                  data={subHeader}
                   isMenuopen={about}
+                  setIsOpen={setAbout}
                   scrollLength={scrollLength}
                 />
                 <li

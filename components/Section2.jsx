@@ -3,7 +3,6 @@ import {
   canteendata,
   healthcaredata,
   hosteldata,
-  internetdata,
   librarydata,
   sportdata,
   transportdata,
@@ -19,11 +18,11 @@ import { IoBus, IoLibraryOutline } from "react-icons/io5";
 
 const data = [
   canteendata,
-  healthcaredata,
+  sportdata,
   hosteldata,
   transportdata,
   librarydata,
-  sportdata,
+  healthcaredata,
 ];
 
 // Reducer function to handle state updates
@@ -67,7 +66,7 @@ const Section2 = () => {
     revertBox(count - 1);
     toggleBox(count);
   }, [count]);
-  console.log(count);
+
   return (
     <div className="w-full min-h-[80vh] flex items-center justify-center py-10 bg-[#ffffff]">
       <div className="w-[80%] min-h-[75vh] flex items-center justify-start pl-10 gap-5 flex-wrap">

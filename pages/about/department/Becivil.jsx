@@ -11,29 +11,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-import React, { useEffect, useState, useRef } from "react";
-import { TabsDemo } from "@/components/Tabs";
+import React from "react";
+
 import Layout1 from "@/components/Layout1";
 import { civildata } from "@/utils/Departmentdetails";
+import Layout2 from "@/components/Layout2";
+import { civildatas } from "@/utils/layout2data";
 
 const Becivil = () => {
-  const [scrollLength, setScrollLength] = useState(0);
-
-  const [currHeight, setCurrHeight] = useState(0);
-  useEffect(() => {
-    setCurrHeight(window.innerHeight);
-    setScrollLength(100);
-  }, [scrollLength]);
-
-  const [selOption, setSelOption] = useState("FACULTY LIST");
-
   return (
     <div>
       <Layout1 data={civildata} />
-
-      <div className="w-[100vw] min-h-screen overflow-scroll duration-300 flex flex-col items-center  pb-10 gap-10 bg-purple-950 ">
-        <TabsDemo />
-      </div>
+      <Layout2 data={civildatas} />
       <Footer />
     </div>
   );

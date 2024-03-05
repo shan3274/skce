@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  Suspense,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { gsap } from "gsap";
 import Hero from "@/components/Hero";
 import Help from "@/components/Help";
@@ -13,12 +7,13 @@ import Chairman from "@/components/Chairman";
 
 import Chatbox from "@/components/Chatbox";
 import Result from "@/components/Result";
-import Sliders from "@/components/Sliders";
-import Slidders1 from "@/components/Slidders1";
 
 import Head from "next/head";
-import Section1 from "@/components/Section1";
 import Section2 from "@/components/Section2";
+import Section1 from "@/components/Section1";
+import Slidders1 from "@/components/Slidders1";
+import Sliders from "@/components/Sliders";
+import Departments from "@/components/Departments";
 const AnimatedLoader = React.memo(({ setLoader }) => {
   const animateLoader = useCallback(() => {
     const loadingpageAnimation = gsap.fromTo(
@@ -77,6 +72,7 @@ const Index = () => {
         <Hero />
         <Result />
         <Chairman />
+        <Departments />
         <Section2 />
         <Help />
         <Footer />

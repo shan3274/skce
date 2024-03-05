@@ -27,13 +27,26 @@ const Chairman = () => {
         transition={{
           duration: 0.6,
         }}
-        className="z-50 flex flex-col justify-center items-center"
+        className="z-50 flex flex-col justify-center items-center w-full rounded-3xl"
       >
-        <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-          The hero section slideshow <br /> nobody asked for
+        <p className=" font-titlefont text-[20px] text-[#ffffff]">Welcome To</p>
+        <motion.p className="font-[700] text-4xl text-[#f5cf47]  text-center bg-clip-text  py-4 pr-5">
+          SREE KRISHNA COLLEGE OF ENGINEERING
         </motion.p>
+        <p className=" w-[60%] text-white text-[15px] text-center bg-black/30 backdrop-blur-lg px-5 py-5 rounded-3xl">
+          Sree Krishna College of Engineering in Vellore was inaugurated in
+          August 2010 by Vellore District Collector Mr.S. Rajendran. SKCE is
+          managed by Lord Sree Krishna Trust. The founder of the Trust, Dr. A.
+          Aranganathan, is a socialist with rich experience in Educational
+          Institutions. Having achieved an inevitable reputation in his own
+          profession, a keen social activist and visionary, felt the need of
+          higher education at affordable cost to everyone. The college excels in
+          Infrastructure and has highly qualified and dedicated faculties and
+          well equipped labs and library with huge number of collections and
+          e-journals.
+        </p>
         <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4">
-          <span>Join now →</span>
+          <span>Read more →</span>
           <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
         </button>
       </motion.div>
