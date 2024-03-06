@@ -8,6 +8,9 @@ import {
   sciencedata,
 } from "@/utils/Departmentdetails";
 
+import Left1 from "./departments/Left1";
+import Right from "./departments/Right";
+
 const Departments = () => {
   const data = [
     civildata,
@@ -28,27 +31,44 @@ const Departments = () => {
       setCount(value);
     }, 5000);
   }, []);
-  console.log(count);
+
   const [disData, setDisData] = useState(civildata);
 
+  const colors = [
+    "#294366",
+    "#071169",
+    "#6245f5",
+    "#541899",
+    "#022745",
+    "#a10e46",
+    "#a10e46",
+  ];
+
+  const [bgColor, setBgColor] = useState(colors[0]); //
   useEffect(() => {
     if (count == 0) {
       setDisData(civildata);
+      setBgColor(colors[0]);
     }
     if (count == 1) {
       setDisData(csedatas);
+      setBgColor(colors[1]);
     }
     if (count == 2) {
       setDisData(elecandcom);
+      setBgColor(colors[2]);
     }
     if (count == 3) {
       setDisData(electric);
+      setBgColor(colors[3]);
     }
     if (count == 4) {
       setDisData(mechdata);
+      setBgColor(colors[4]);
     }
     if (count == 5) {
       setDisData(sciencedata);
+      setBgColor(colors[5]);
     }
   }, [count]);
   const changeData = (value, key) => {
@@ -74,44 +94,19 @@ const Departments = () => {
   };
 
   return (
-    <div className="w-full h-[65vh] flex items-center justify-center relative  rounded-3xl my-10 ">
-      <div
-        className="w-[50%] h-[50vh] absolute z-[1] left-5 overflow-hidden rounded-xl drop-shadow-xl duration-300"
-        style={{
-          backgroundImage: `url(${disData.bg[0]})`,
-        }}
-      >
-        <div className=" w-full h-full z-[2] bg-[rgba(0,0,0,.3)]"></div>
-      </div>
-      <div className="absolute w-[15vw] h-[80%] left-0 flex flex-col justify-center items-center gap-5 ml-5">
-        {data?.map((item, key) => {
-          return (
-            <button
-              onMouseEnter={() => {
-                changeData(item?.h1, key);
-              }}
-              className={
-                key == count
-                  ? "w-[90%] z-[2] text-start pl-5 text-[10px] bg-white/80 backdrop-blur-sm h-[40px] rounded-xl duration-100 hover:scale-[1.1] scale-[1.1]"
-                  : "w-[90%] z-[2] text-start pl-5 text-[10px] bg-white/80 backdrop-blur-sm h-[40px] rounded-xl duration-100 hover:scale-[1.1] scale-[1]"
-              }
-            >
-              {item?.h1}
-            </button>
-          );
-        })}
-      </div>
-      <div className="w-[45%] min-h-[20%] absolute right-5 py-10 bg-black/60  text-white backdrop-blur-sm rounded-xl flex flex-col items-center pt-10 gap-5 duration-700">
-        <p className="text-[18px] w-[90%] text-center font-titlefont duration-300">
-          {disData.h1}
-        </p>
-        <p className="text-[13px] w-[90%] text-center font-titlefont duration-300">
-          {disData.h2}
-        </p>
-        <p className="text-[10px] w-[90%] text-center font-sans duration-300">
-          {disData.p1}
-        </p>
-      </div>
+    <div className="w-full h-[100vh] relative  flex items-center justify-center  rounded-3xl my-10 ">
+      {count == 0 && <Left1 bgColor={bgColor} count={count} data={data[0]} />}
+      {count == 1 && <Left1 bgColor={bgColor} count={count} data={data[1]} />}
+      {count == 2 && <Left1 bgColor={bgColor} count={count} data={data[2]} />}
+      {count == 3 && <Left1 bgColor={bgColor} count={count} data={data[3]} />}
+      {count == 4 && <Left1 bgColor={bgColor} count={count} data={data[4]} />}
+      {count == 5 && <Left1 bgColor={bgColor} count={count} data={data[5]} />}
+      {count == 0 && <Right data={data[0]} count={count} />}
+      {count == 1 && <Right data={data[1]} count={count} />}
+      {count == 2 && <Right data={data[2]} count={count} />}
+      {count == 3 && <Right data={data[3]} count={count} />}
+      {count == 4 && <Right data={data[4]} count={count} />}
+      {count == 5 && <Right data={data[5]} count={count} />}
     </div>
   );
 };

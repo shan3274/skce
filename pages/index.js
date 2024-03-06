@@ -14,6 +14,7 @@ import Section1 from "@/components/Section1";
 import Slidders1 from "@/components/Slidders1";
 import Sliders from "@/components/Sliders";
 import Departments from "@/components/Departments";
+import Videos from "@/components/Videos";
 const AnimatedLoader = React.memo(({ setLoader }) => {
   const animateLoader = useCallback(() => {
     const loadingpageAnimation = gsap.fromTo(
@@ -53,7 +54,7 @@ const AnimatedLoader = React.memo(({ setLoader }) => {
   return (
     <div className="fixed w-full h-screen top-0 left-0 z-[99999]">
       <div className="loadingpage w-full h-screen flex items-center justify-center bg-[#000000] flex-col gap-10">
-        <img className="img w-[70%] lg:w-[50%]" src="logo.png" alt="" />
+        <img className="img w-[70%] lg:w-[50%]" src="loader.png" alt="" />
       </div>
     </div>
   );
@@ -72,8 +73,9 @@ const Index = () => {
         <Hero />
         <Result />
         <Chairman />
-        <Departments />
         <Section2 />
+        <Videos />
+        <Departments />
         <Help />
         <Footer />
         <Chatbox />

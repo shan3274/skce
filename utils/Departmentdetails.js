@@ -1,4 +1,5 @@
 export const civildata = {
+  pathName: "/about/department/Becivil",
   h1: "B.E CIVIL ENGINEERING",
   h2: "NAAN MUDALVAN SCHEME - CONSTRUCTION/STRUCTURAL DESIGN",
   p1: "The Civil Engineering Department, have established at the equipment cost Rs. 48 lakhs, contains Survey Laboratory, Strength of Material Laboratory, Applied Hydraulics Laboratory, Computer Aided Design Laboratory.From the pyramids of Egypt to the international space station, civil engineers have always faced the challenges of the future – advancing civilization and building our quality of life. Civil engineers are in the forefront of technology.",
@@ -11,6 +12,7 @@ export const civildata = {
 };
 
 export const csedatas = {
+  pathName: "/about/department/Becse",
   h1: "B.E- COMPUTER SCIENCE AND ENGINEERING",
   h2: "NAAN MUDALVAN SCHEME - IOT/DATA SCIENCE/CYBER SECURITY",
   p1: "The Computer Science and Engineering Department, have established at the equipment cost Rs. 45 lakhs, contains Computer Practice Laboratory, Object Oriented Programmes Laboratory, Data structures Laboratory, Operating System Laboratory and Data Base Management Laboratory.",
@@ -23,6 +25,7 @@ export const csedatas = {
 };
 
 export const elecandcom = {
+  pathName: "/about/department/Beelectrics",
   h1: "B.E ELECTRONICS AND COMMUNICATION ENGINEERING",
   h2: "NAAN MUDALVAN SCHEME - CONSTRUCTION/STRUCTURAL DESIGN",
   p1: "The Electronics and Communication Engineering Department, have established at the equipment cost Rs. 40 lakhs, contains Electronic Circuits Laboratory, Linear Integrated Circuits Laboratory, Digital Electronics Laboratory, Microprocessor and Micro Controller Laboratory.The department start functioning with the first batch of students admitted into the department in 2011, with an intake of 60 in UG program. This course has been designed with an aim to meet industry requirements in the field of Electronics by studying hardware and interfacing of computer systems, programming skills and applications of computer emphasis on latest technological development. The Electronics and Communication Engineering is one of the largest and fastest growing fields. It covers wide range of applications that we use daily. The modern society is increasingly depending on the communication of information to make our life easier. Students taking their degree learn about the operating principles and design of devices ranging from mobile phones, wireless and satellite communication systems.",
@@ -34,6 +37,7 @@ export const elecandcom = {
 };
 
 export const electric = {
+  pathName: "/about/department/Beelectricandelec",
   h1: "B.E ELECTRICAL AND ELECTRONICS ENGINEERING",
   h2: "NAAN MUDALVAN SCHEME - POWER GRID/RES",
   p1: "The Electrical and Electronics Engineering Department, have established at the equipment cost Rs. 20 lakhs, contains Power Electronics Laboratory, Measurement and Instrumentation Laboratory, Control System Laboratory, Electrical Machines Laboratory and Electrical Circuits Laboratory. The Department of Electrical & Electronics Engineering has well-qualified and experienced faculty members with specialization in varied fields like Electrical Machines, Electrical Drives, Power Electronics, High Voltage Engineering, Power Systems and Control Systems, Senior Professional and technocrats from industry visit the department periodically and deliver special lectures on topics of current interest to the UG students",
@@ -46,6 +50,7 @@ export const electric = {
 };
 
 export const mechdata = {
+  pathName: "/about/department/Bemechabical",
   h1: "B.E MECHANICAL ENGINEERING",
   h2: "NAAN MUDALVAN SCHEME - ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING",
   p1: "Mechanical Engineering Department, have established at the equipment cost of Rs. 65 lakhs, contains Manufacturing Technology Laboratory, Engineering Practice Laboratory, Fluid Mechanics Laboratory, Strength of Material laboratory and Computer Aided Design Laboratory.Mechanical engineering is the second largest engineering discipline and one of the oldest. Mechanical engineers apply the principles of mechanics and energy to the design of machines and devices. Mechanical engineers are involved with the design of structures, operation and maintenance of mechanical systems. They are involved in the designing and fabricating of automobiles, trucks, airplanes, and trains for transportation; tractors for food production; interplanetary space vehicles; copying machines fax machines, staplers, used in the office; and lathes, milling machines, grinders, and drill presses used in the manufacture of goods; and just about anything that moves. Mechanical engineers also design and operate power plants and are concerned with the economical combustion of fuels, the conversion of heat energy into mechanical energy, and the use of mechanical energy to perform useful work. Their scope of work is truly large.",
@@ -58,6 +63,7 @@ export const mechdata = {
 };
 
 export const sciencedata = {
+  pathName: "/about/department/Scienceandhuman",
   h1: "SCIENCE AND HUMANITIES",
   p1: "The Department of Science and Humanities of study namely English,Physics, Chemistry, and Mathematics. All these four disciplines exist and maintain individual identity. Around 30 Well-experienced and highly qualified faculty members embellish with their spontaneous efforts to improve our Teaching,Learning, Research and Development processes. Science and Humanities have 3 Laboratories – Physics, Chemistry & English Communication Laboratory.",
 
