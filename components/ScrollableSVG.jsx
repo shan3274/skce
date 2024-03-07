@@ -48,9 +48,9 @@ const ScrollableSVG = ({ count }) => {
     >
       <path
         id="Transparent_Ring"
-        className="transrg"
+        className="transrg dur"
         style={{
-          opacity: 0.4,
+          opacity: 0.1,
           fill: "none",
           stroke: "#FFFFFF",
           strokeWidth: 2,
@@ -67,9 +67,8 @@ const ScrollableSVG = ({ count }) => {
         style={{
           fill: "none",
           stroke: "rgb(255, 255, 255)",
-          strokeWidth: 2,
+          strokeWidth: 5,
           strokeMiterlimit: 10,
-          transition: "1s linear all ease-in",
         }}
         d="M84.2,85c31.3-31.5,74.7-51,122.7-51c95.5,0,173,77.5,173,173s-77.5,173-173,173 c-47.8,0-91-19.4-122.3-50.7"
       ></path>

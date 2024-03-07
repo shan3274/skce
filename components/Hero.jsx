@@ -21,6 +21,20 @@ const Hero = () => {
     <div id="hero-content" className="w-full h-screen ">
       <Nheader scrollLength={scrollLength} />
       <main className=" w-full h-screen  bg-[#bababa] flex items-center justify-center  overflow-hidden text-white cursor-default relative">
+        <div className="absolute flex items-center w-full h-[40px] bg-black/30 backdrop-blur-sm z-[2] bottom-5">
+          <div class="marquee-container">
+            <div class="marquee-content">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid,
+              facere laborum repellat rerum neque, libero modi ratione natus
+              corporis cupiditate non. Est consequatur atque quia error tempora
+              quos assumenda sapiente. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Neque maiores eos voluptas officiis laudantium!
+              Quis asperiores temporibus nostrum, debitis sed ea molestias?
+              Tempore incidunt deleniti accusantium impedit adipisci rerum quos.
+            </div>
+          </div>
+        </div>
+
         {count % 2 == 0 ? (
           <motion.div
             initial={{ opacity: 0 }}

@@ -10,6 +10,17 @@ import {
 
 import Left1 from "./departments/Left1";
 import Right from "./departments/Right";
+// Reducer function to handle state updates
+const boxesReducer = (state, action) => {
+  switch (action.type) {
+    case "TOGGLE":
+      return state.map((box, index) => (index === action.index ? !box : box));
+    case "REVERT":
+      return state.map((box, index) => (index === action.index ? !box : box));
+    default:
+      return state;
+  }
+};
 
 const Departments = () => {
   const data = [
@@ -20,6 +31,23 @@ const Departments = () => {
     mechdata,
     sciencedata,
   ];
+
+  const [boxs, dispatch] = useReducer(boxesReducer, [
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+  ]);
+
+  const toggleBox = (index) => {
+    dispatch({ type: "TOGGLE", index });
+  };
+
+  const revertBox = (index) => {
+    dispatch({ type: "REVERT", index });
+  };
 
   let [count, setCount] = useState(0);
 
@@ -32,8 +60,6 @@ const Departments = () => {
     }, 5000);
   }, []);
 
-  const [disData, setDisData] = useState(civildata);
-
   const colors = [
     "#294366",
     "#071169",
@@ -44,57 +70,79 @@ const Departments = () => {
     "#a10e46",
   ];
 
+  const [posi, setPosi] = useState(0);
   const [bgColor, setBgColor] = useState(colors[0]); //
+
   useEffect(() => {
     if (count == 0) {
-      setDisData(civildata);
       setBgColor(colors[0]);
+      setPosi(20);
+      toggleBox(0);
+      revertBox(5);
     }
     if (count == 1) {
-      setDisData(csedatas);
       setBgColor(colors[1]);
+      setPosi(posi + 100);
+      revertBox(0);
+      toggleBox(1);
     }
     if (count == 2) {
-      setDisData(elecandcom);
       setBgColor(colors[2]);
+      setPosi(posi + 100);
+      toggleBox(2);
+      revertBox(1);
     }
     if (count == 3) {
-      setDisData(electric);
       setBgColor(colors[3]);
+      setPosi(posi + 100);
+      toggleBox(3);
+      revertBox(2);
     }
     if (count == 4) {
-      setDisData(mechdata);
       setBgColor(colors[4]);
+      setPosi(posi + 100);
+      toggleBox(4);
+      revertBox(3);
     }
     if (count == 5) {
-      setDisData(sciencedata);
       setBgColor(colors[5]);
+      setPosi(posi + 100);
+      toggleBox(5);
+      revertBox(4);
     }
   }, [count]);
-  const changeData = (value, key) => {
-    setCount(key);
-    if (value == "B.E CIVIL ENGINEERING") {
-      setDisData(civildata);
-    }
-    if (value == "B.E- COMPUTER SCIENCE AND ENGINEERING") {
-      setDisData(csedatas);
-    }
-    if (value == "B.E ELECTRONICS AND COMMUNICATION ENGINEERING") {
-      setDisData(elecandcom);
-    }
-    if (value == "B.E ELECTRICAL AND ELECTRONICS ENGINEERING") {
-      setDisData(electric);
-    }
-    if (value == "B.E MECHANICAL ENGINEERING") {
-      setDisData(mechdata);
-    }
-    if (value == "SCIENCE AND HUMANITIES") {
-      setDisData(sciencedata);
-    }
-  };
 
+  const [onMenu, setOnMenu] = useState(false);
+  console.log(boxs);
   return (
     <div className="w-full h-[100vh] relative  flex items-center justify-center  rounded-3xl my-10 ">
+      <div
+        className="absolute  cursor-pointer px-5 overflow-hidden h-[40px] bg-black/50 text-white backdrop-blur-md rounded-full z-[1] top-5 flex items-center justify-around"
+        onMouseEnter={() => setOnMenu(true)}
+        onMouseLeave={() => setOnMenu(false)}
+      >
+        <div
+          className="absolute duration-300 w-[100px] h-[25px] bg-white z-[2] top-1.5 left-1 rounded-full"
+          style={{
+            left: `${posi}px`,
+          }}
+        ></div>
+        {data.map((item, key) => {
+          return (
+            <p
+              onClick={() => {
+                setCount(key);
+              }}
+              style={{
+                color: !boxs[key] && "black",
+              }}
+              className="text-[10px] relative z-[3] w-[100px] text-center"
+            >
+              {item.sName}
+            </p>
+          );
+        })}
+      </div>
       {count == 0 && <Left1 bgColor={bgColor} count={count} data={data[0]} />}
       {count == 1 && <Left1 bgColor={bgColor} count={count} data={data[1]} />}
       {count == 2 && <Left1 bgColor={bgColor} count={count} data={data[2]} />}

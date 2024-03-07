@@ -6,7 +6,7 @@ const Left1 = ({ count, bgColor, data }) => {
   const route = useRouter();
   return (
     <div
-      className="w-[50%] relative h-full   flex flex-col items-start justify-center gap-5 drop-shadow-xl pl-5"
+      className="w-[50%] relative h-full rounded-b-[70px]   flex flex-col items-start justify-center gap-5 drop-shadow-xl pl-5"
       style={{
         background: `${bgColor}`,
       }}
