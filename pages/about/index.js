@@ -21,11 +21,11 @@ const index = () => {
   const data = {
     h1: "Welcome To",
     h2: "SREE KRISHNA COLLEGE OF ENGINEERING",
-    p1: " Sree Krishna College of Engineering in Vellore was inaugurated in August 2010 by Vellore District Collector Mr.S. Rajendran. SKCE is managed by Lord Sree Krishna Trust. The founder of the Trust, Dr. A. Aranganathan, is a socialist with rich experience in Educational Institutions.",
-    p2: " Having achieved an inevitable reputation in his own profession, a keen social activist and visionary, felt the need of higher education at affordable cost to everyone.",
+
+    p2: "  Sree Krishna College of Engineering in Vellore was inaugurated in August 2010 by Vellore District Collector Mr.S. Rajendran. SKCE is managed by Lord Sree Krishna Trust. The founder of the Trust, Dr. A. Aranganathan, is a socialist with rich experience in Educational Institutions. Having achieved an inevitable reputation in his own profession, a keen social activist and visionary, felt the need of higher education at affordable cost to everyone.",
     h3: "The college excels in Infrastructure and has highly qualified and dedicated faculties and well equipped labs and library with huge number of collections and e-journals.",
     bg: [
-      "https://www.sreekrishnaengcollege.com/assets/img/sree-krishna-college-of-engg-vellore-67.jpg",
+      "https://images.pexels.com/photos/1025401/pexels-photo-1025401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=10",
     ],
   };
   return (

@@ -10,6 +10,7 @@ import {
 
 import Left1 from "./departments/Left1";
 import Right from "./departments/Right";
+import ScrollableSVG from "./ScrollableSVG";
 // Reducer function to handle state updates
 const boxesReducer = (state, action) => {
   switch (action.type) {

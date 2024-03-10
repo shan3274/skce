@@ -1,35 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 const ScrollableSVG = ({ count }) => {
   const [bgcolor, setBgcolor] = useState("#294366");
-  const [scrollLength, setScrollLength] = useState(0);
-  const maxScrollLength = 7000; // Set the total length of scroll in pixels
-
-  console.log(count);
+  const [scrollLength, setScrollLength] = useState();
+  useMemo(() => {
+    setScrollLength(0);
+  }, []);
   useEffect(() => {
-    if (count == 0) {
-      setBgcolor("#294366");
+    let newBgColor = "#294366"; // Default color
+    switch (count) {
+      case 1:
+        newBgColor = "#071169";
+        break;
+      case 2:
+        newBgColor = "#6245f5";
+        break;
+      case 3:
+        newBgColor = "#541899";
+        break;
+      case 4:
+        newBgColor = "#022745";
+        break;
+      case 5:
+      case 6:
+        newBgColor = "#a10e46";
+        break;
+      default:
+        break;
     }
-    if (count == 1) {
-      setBgcolor("#071169");
-    }
-    if (count == 2) {
-      setBgcolor("#6245f5");
-    }
-    if (count == 3) {
-      setBgcolor("#541899");
-    }
-    if (count == 4) {
-      setBgcolor("#022745");
-    }
-    if (count == 5) {
-      setBgcolor("#a10e46");
-    }
-    if (count == 6) {
-      setBgcolor("#a10e46");
-    }
-  }, [count]); // Include maxScrollLength as a dependency
-
+    setBgcolor(newBgColor);
+    setScrollLength(135 * count);
+  }, [count]);
   return (
     <svg
       version="1.1"
@@ -48,7 +49,7 @@ const ScrollableSVG = ({ count }) => {
     >
       <path
         id="Transparent_Ring"
-        className="transrg dur"
+        className="transrg duration-300"
         style={{
           opacity: 0.1,
           fill: "none",
@@ -62,8 +63,8 @@ const ScrollableSVG = ({ count }) => {
       {/* Other SVG elements */}
       <path
         id="Opaque_Ring"
-        className="transrgwht "
-        strokeDasharray={`${count * 140}, 1000`} // Use scrollLength to control the dash array
+        className="transrgwht duration-700"
+        strokeDasharray={`${scrollLength}, 1000`} // Use scrollLength to control the dash array
         style={{
           fill: "none",
           stroke: "rgb(255, 255, 255)",

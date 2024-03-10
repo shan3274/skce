@@ -31,6 +31,10 @@ module.exports = {
       fontFamily: {
         titlefont: ["Anta", " sans-serif"],
         michroma: ["Michroma", " sans-serif"],
+        poppins: ["Poppins"],
+        Caveat: ["Caveat"],
+        Kode_Mono: ["Kode Mono"],
+        Comfortaa: ["Comfortaa"],
       },
     },
   },

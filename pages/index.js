@@ -40,7 +40,7 @@ const AnimatedLoader = React.memo(({ setLoader }) => {
     () => onCompleteAllAnimations,
     []
   );
-
+  
   useEffect(() => {
     const animation = animateLoader();
 
