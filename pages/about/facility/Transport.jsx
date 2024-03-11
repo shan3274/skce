@@ -3,6 +3,7 @@ import Nheader from "@/components/Nheader";
 import Layout1 from "@/components/Layout1";
 import React, { useEffect, useState } from "react";
 import { transportdata } from "@/utils/facilitiesdata";
+import Layout3 from "@/components/Layout3";
 
 const Treansport = () => {
   const [scrollLength, setScrollLength] = useState(0);
@@ -16,7 +17,7 @@ const Treansport = () => {
   return (
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <Layout1 data={transportdata} />
+      <Layout3 data={transportdata} />
       <Footer />
     </div>
   );

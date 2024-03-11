@@ -3,6 +3,7 @@ import Nheader from "@/components/Nheader";
 import Layout1 from "@/components/Layout1";
 import React, { useEffect, useState } from "react";
 import { librarydata } from "@/utils/facilitiesdata";
+import Layout3 from "@/components/Layout3";
 
 const Library = () => {
   const [scrollLength, setScrollLength] = useState(0);
@@ -16,7 +17,7 @@ const Library = () => {
   return (
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <Layout1 data={librarydata} />
+      <Layout3 data={librarydata} />
       <Footer />
     </div>
   );

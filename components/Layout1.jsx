@@ -57,18 +57,18 @@ const Layout1 = ({ data }) => {
           className="sidel1 w-[35.7%] h-[71vh]   absolute right-12 top-0 p-0  z-[10] bg-[#144272]/80 backdrop-blur-lg text-white"
         >
           <div className="w-full h-full relative  flex items-start pt-[5vh] pl-[6vw] justify-center  flex-col gap-5">
-            <h1 className="text-[30px] font-serif">{data.h1}</h1>
+            <h1 className="text-[30px] font-serif">{data?.h1}</h1>
             <p className="text-[10px] w-[90%] text-justify font-serif">
-              {data.p1}
+              {data?.p1}
             </p>
             <h1 className="text-[15px] w-[90%] text-justify font-serif">
-              {data.h2}
+              {data?.h2}
             </h1>
             <p className="text-[10px] w-[90%] text-justify font-serif">
-              {data.p2}
+              {data?.p2}
             </p>
             <p className="text-[10px] w-[90%] text-justify font-serif">
-              {data.p3}
+              {data?.p3}
             </p>
           </div>
         </motion.div>

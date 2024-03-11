@@ -6,6 +6,20 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Hero = () => {
   const [count, setCount] = useState(0);
+  const [data, setData] = useState({
+    tiedUpWithVELS: {
+      title: "Tied up with VELS",
+      image1:
+        "https://vistas.ac.in/wp-content/uploads/2021/01/New-Project-27.png",
+      image2: "https://www.sreekrishnaengcollege.com/assets/img/logo.png",
+      description:
+        "Sree Krishna College of Engineering in Vellore was inaugurated in August 2010 by Vellore District Collector Mr.S. Rajendran. SKCE is managed by Lord Sree Krishna Trust. The founder of the Trust, Dr. A. Aranganathan, is a socialist with rich experience in Educational Institutions.",
+    },
+    admissionsAnnouncement: {
+      title: "Admissions Announcement 2023-24",
+      buttonText: "Apply Now",
+    },
+  });
 
   useEffect(() => {
     let i = 0;
@@ -24,15 +38,9 @@ const Hero = () => {
       <Nheader scrollLength={scrollLength} />
       <main className="w-full h-screen bg-[#bababa] flex items-center justify-center overflow-hidden text-white cursor-default relative">
         <div className="absolute flex items-center w-full h-[40px] bg-black/30 backdrop-blur-sm z-[2] bottom-5">
-          <div class="marquee-container">
-            <div class="marquee-content">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid,
-              facere laborum repellat rerum neque, libero modi ratione natus
-              corporis cupiditate non. Est consequatur atque quia error tempora
-              quos assumenda sapiente. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Neque maiores eos voluptas officiis laudantium!
-              Quis asperiores temporibus nostrum, debitis sed ea molestias?
-              Tempore incidunt deleniti accusantium impedit adipisci rerum quos.
+          <div className="marquee-container">
+            <div className="marquee-content">
+              {data.tiedUpWithVELS.description}
             </div>
           </div>
         </div>
@@ -49,19 +57,19 @@ const Hero = () => {
             >
               <div className="flex items-center justify-center gap-5">
                 <img
-                  src="https://vistas.ac.in/wp-content/uploads/2021/01/New-Project-27.png"
+                  src={data.tiedUpWithVELS.image1}
                   alt=""
                   className="w-[250px]"
                 />
                 <FaHandshake size={30} />
                 <img
-                  src="https://www.sreekrishnaengcollege.com/assets/img/logo.png"
+                  src={data.tiedUpWithVELS.image2}
                   alt=""
                   className="w-[250px]"
                 />
               </div>
               <h1 className="lg:text-[40px] text-[30px] font-sans lg:w-[60%] text-center font-[700]">
-                Tied up with VELS
+                {data.tiedUpWithVELS.title}
               </h1>
             </motion.div>
           ) : (
@@ -74,10 +82,10 @@ const Hero = () => {
               className="absolute w-[90%] lg:w-[50%] h-[40%] bg-black/30 z-[3] rounded-[50px] top-[30%] flex flex-col items-center justify-center gap-5 duration-300"
             >
               <h1 className="lg:text-[40px] text-[30px] font-sans lg:w-[60%] text-center font-[700]">
-                Admissions Announcement 2023-24
+                {data.admissionsAnnouncement.title}
               </h1>
               <button className="lg:text-[25px] font-sans px-5 py-3 bg-yellow-500 rounded-lg hover:scale-[1.05] duration-75 hover:bg-blue-500">
-                Apply Now
+                {data.admissionsAnnouncement.buttonText}
               </button>
             </motion.div>
           )}

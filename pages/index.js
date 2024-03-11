@@ -1,55 +1,32 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState, Suspense } from "react";
 import { gsap } from "gsap";
-import Hero from "@/components/Hero";
-import Help from "@/components/Help";
-import Footer from "@/components/Footer";
-import Chairman from "@/components/Chairman";
-
-import Chatbox from "@/components/Chatbox";
-import Result from "@/components/Result";
-
 import Head from "next/head";
-import Section2 from "@/components/Section2";
-import Section1 from "@/components/Section1";
-import Slidders1 from "@/components/Slidders1";
-import Sliders from "@/components/Sliders";
-import Departments from "@/components/Departments";
-import Videos from "@/components/Videos";
-const AnimatedLoader = React.memo(({ setLoader }) => {
-  const animateLoader = useCallback(() => {
-    const loadingpageAnimation = gsap.fromTo(
-      ".loadingpage",
-      { opacity: 1 },
-      { opacity: 0, duration: 1.5, delay: 2 }
-    );
 
-    const imgAnimation = gsap.fromTo(
-      ".img",
-      { y: 100, opacity: 1 },
-      { y: 0, opacity: 0, duration: 3.5, delay: 0.5 }
-    );
-
-    return gsap.timeline().add(loadingpageAnimation, 0).add(imgAnimation, 0);
-  }, []);
-
-  const onCompleteAllAnimations = useCallback(() => {
-    setLoader(false);
-  }, [setLoader]);
-
-  const onCompleteAllAnimationsMemoized = useMemo(
-    () => onCompleteAllAnimations,
-    []
-  );
-  
+const AnimatedLoader = React.memo(({ isVisible }) => {
   useEffect(() => {
-    const animation = animateLoader();
+    if (isVisible) {
+      const loadingpageAnimation = gsap.fromTo(
+        ".loadingpage",
+        { opacity: 1 },
+        { opacity: 0, duration: 1.5, delay: 2 }
+      );
 
-    animation.eventCallback("onComplete", onCompleteAllAnimationsMemoized);
+      const imgAnimation = gsap.fromTo(
+        ".img",
+        { y: 100, opacity: 1 },
+        { y: 0, opacity: 0, duration: 3.5, delay: 0.5 }
+      );
 
-    return () => {
-      animation.kill();
-    };
-  }, [animateLoader, onCompleteAllAnimationsMemoized]);
+      const animation = gsap
+        .timeline()
+        .add(loadingpageAnimation, 0)
+        .add(imgAnimation, 0);
+
+      return () => animation.kill();
+    }
+  }, [isVisible]);
+
+  if (!isVisible) return null;
 
   return (
     <div className="fixed w-full h-screen top-0 left-0 z-[99999]">
@@ -61,7 +38,16 @@ const AnimatedLoader = React.memo(({ setLoader }) => {
 });
 
 const Index = () => {
-  const [loader, setLoader] = useState(true);
+  const [loaderVisible, setLoaderVisible] = useState(true);
+
+  useEffect(() => {
+    // Simulate async data fetching
+    const timer = setTimeout(() => {
+      setLoaderVisible(false);
+    }, 3000); // Adjust this value based on your loading time
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -69,19 +55,42 @@ const Index = () => {
         <Head>
           <title>SKCE</title>
         </Head>
-        {loader && <AnimatedLoader setLoader={setLoader} />}
-        <Hero />
-        <Result />
-        <Chairman />
-        <Section2 />
-        <Videos />
-        <Departments />
-        <Help />
-        <Footer />
-        <Chatbox />
+        <Suspense fallback={<div>Loading...</div>}>
+          <LazyLoadedComponents />
+        </Suspense>
+        <AnimatedLoader isVisible={loaderVisible} />
       </div>
     </>
   );
+};
+
+const LazyLoadedComponents = () => (
+  <>
+    <LazyLoadComponent component={() => import("@/components/Hero")} />
+    <LazyLoadComponent component={() => import("@/components/Result")} />
+    <LazyLoadComponent component={() => import("@/components/Chairman")} />
+    <LazyLoadComponent component={() => import("@/components/Section2")} />
+    <LazyLoadComponent component={() => import("@/components/Videos")} />
+    <LazyLoadComponent component={() => import("@/components/Departments")} />
+    <LazyLoadComponent component={() => import("@/components/Help")} />
+    <LazyLoadComponent component={() => import("@/components/Footer")} />
+    {/* Add more lazy loaded components here */}
+  </>
+);
+
+const LazyLoadComponent = ({ component: Component }) => {
+  const [ComponentToRender, setComponentToRender] = useState(null);
+
+  useEffect(() => {
+    const loadComponent = async () => {
+      const { default: ImportedComponent } = await Component();
+      setComponentToRender(<ImportedComponent />);
+    };
+
+    loadComponent();
+  }, [Component]);
+
+  return ComponentToRender;
 };
 
 export default Index;

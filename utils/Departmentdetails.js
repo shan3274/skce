@@ -1,3 +1,5 @@
+import { getElement } from "./firebase";
+
 export const civildata = {
   pathName: "/about/department/Becivil",
   sName: "CIVIL",

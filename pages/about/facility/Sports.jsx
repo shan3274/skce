@@ -4,6 +4,7 @@ import Layout1 from "@/components/Layout1";
 import { BackgroundBeams } from "@/utils/background-beams";
 import React, { useEffect, useState } from "react";
 import { sportdata } from "@/utils/facilitiesdata";
+import Layout3 from "@/components/Layout3";
 
 const Sports = () => {
   const [scrollLength, setScrollLength] = useState(0);
@@ -40,7 +41,7 @@ const Sports = () => {
   return (
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <Layout1 data={sportdata} />
+      <Layout3 data={sportdata} />
       <div className="w-full min-h-screen overflow-scroll flex flex-col items-center justify-start gap-5 relative top-[15vh]  ">
         <div className="fixed top-0 w-full h-screen  z-[-2] bg-[#282828]">
           <BackgroundBeams />

@@ -1,6 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+} from "firebase/firestore";
+import { useMemo, useState } from "react";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -17,6 +24,12 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-export const pushDatabase = () => {
-  console.log("Push Database");
+export const getElement = (url) => {
+  const [data, setData] = useState();
+  useMemo(async () => {
+    await getDoc(doc(db, url)).then((response) => {
+      setData(response.data());
+    });
+  }, []);
+  return data;
 };
