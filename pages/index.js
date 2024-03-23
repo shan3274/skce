@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState, Suspense } from "react";
 import { gsap } from "gsap";
 import Head from "next/head";
+import { getElement } from "@/utils/firebase";
+import { ClockLoader } from "react-spinners";
 
-const AnimatedLoader = React.memo(({ isVisible }) => {
+const AnimatedLoader = React.memo(({ isVisible, bg }) => {
   useEffect(() => {
     if (isVisible) {
       const loadingpageAnimation = gsap.fromTo(
@@ -31,7 +33,7 @@ const AnimatedLoader = React.memo(({ isVisible }) => {
   return (
     <div className="fixed w-full h-screen top-0 left-0 z-[99999]">
       <div className="loadingpage w-full h-screen flex items-center justify-center bg-[#000000] flex-col gap-10">
-        <img className="img w-[70%] lg:w-[50%]" src="loader.png" alt="" />
+        <img className="img w-[70%] lg:w-[50%]" src={bg} alt="" />
       </div>
     </div>
   );
@@ -48,8 +50,8 @@ const Index = () => {
 
     return () => clearTimeout(timer);
   }, []);
-
-  return (
+  const loader = getElement("assests/MdShQSNU47lGbIivmEfy/");
+  return loader !== undefined ? (
     <>
       <div id="main-container" className="bg-transparent">
         <Head>
@@ -58,9 +60,14 @@ const Index = () => {
         <Suspense fallback={<div>Loading...</div>}>
           <LazyLoadedComponents />
         </Suspense>
-        <AnimatedLoader isVisible={loaderVisible} />
+        <AnimatedLoader isVisible={loaderVisible} bg={loader?.loader} />
       </div>
     </>
+  ) : (
+    <div className="w-full h-screen flex items-center flex-col gap-5 justify-center">
+      <ClockLoader size={100} />
+      <h1 className="text-[30px] font-poppins font-[200]">Please wait....</h1>
+    </div>
   );
 };
 

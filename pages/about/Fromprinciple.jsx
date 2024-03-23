@@ -16,7 +16,6 @@ const Fromprinciple = () => {
   console.log(data?.position);
   return (
     <div>
-      <Nheader scrollLength={scrollLength} />
       <Layout3 data={data} />
       <Footer />
     </div>

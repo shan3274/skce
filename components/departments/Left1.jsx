@@ -2,11 +2,11 @@ import React from "react";
 import ScrollableSVG from "../ScrollableSVG";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-const Left1 = ({ count, bgColor, data }) => {
+const Left1 = ({ count, bgColor, data, svgColors }) => {
   const route = useRouter();
   return (
     <div
-      className="w-[50%] relative h-full rounded-b-[70px]   flex flex-col items-start justify-center gap-5 drop-shadow-xl pl-5"
+      className="w-[50%] relative h-full rounded-bl-[70px]   flex flex-col items-start justify-center gap-5 drop-shadow-xl pl-5"
       style={{
         background: `${bgColor}`,
       }}
@@ -17,7 +17,7 @@ const Left1 = ({ count, bgColor, data }) => {
           background: `${bgColor}`,
         }}
       >
-        <ScrollableSVG count={count} />
+        <ScrollableSVG count={count} color={svgColors} />
         <motion.div
           animate={{ x: 50 }}
           transition={{ type: "spring", stiffness: 100 }}

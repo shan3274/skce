@@ -69,7 +69,7 @@ const Section2 = () => {
 
   return (
     <div className="w-full min-h-[80vh] flex items-center justify-center py-10 bg-[#ffffff]">
-      <div className="w-[80%] min-h-[75vh] flex items-center justify-start pl-10 gap-5 flex-wrap">
+      <div className="w-[90%] min-h-[75vh] flex items-center justify-center pl-10 gap-5 flex-wrap">
         {data.map((item, key) => (
           <div
             key={key}

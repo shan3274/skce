@@ -100,12 +100,13 @@ const Staffdetails = () => {
   return (
     <div>
       <Nheader scrollLength={scrollLength} currHeight={currHeight} />
-      <div className="w-full min-h-screen overflow-scroll duration-300 flex flex-col items-center pt-[30vh] pb-10 gap-10  bg-[url(https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover">
+      <div className="w-full min-h-screen overflow-scroll duration-300 flex flex-col items-center pt-[30vh] pb-10 gap-10  bg-[url(https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative">
+        <div className="absolute w-full h-full z-[1] bg-black/20 backdrop-blur-[3px] top-0 "></div>
         <select
           onChange={(e) => setSelValue(e.target.value)}
           name=""
           id=""
-          className="relative  bg-black/30 px-[3vw] py-[2vh] rounded-lg backdrop-blur-md text-white font-titlefont"
+          className="relative  bg-black/30 px-[3vw] py-[2vh] rounded-lg backdrop-blur-md text-white font-titlefont text-center z-[2]"
         >
           <option value="FACULTY DETAILS">FACULTY DETAILS</option>
           <option value="DEPARTMENT OF S&H">DEPARTMENT OF S&H</option>
@@ -130,7 +131,7 @@ const Staffdetails = () => {
           {selValue == "DEPARTMENT OF S&H" &&
             sh.map((item) => {
               return (
-                <div className="w-[90%] h-[40px] bg-white/50 rounded-md backdrop-blur-md flex items-center justify-around pl-5 text-white text-[14px]">
+                <div className="w-[90%] h-[40px] bg-gray/50 rounded-md backdrop-blur-md flex items-center justify-around pl-5 text-white text-[14px]">
                   <div className="w-[10%]">{item.sno}</div>
                   <div className="w-[25%]">{item.name}</div>
                   <div className="w-[25%]">{item.position}</div>

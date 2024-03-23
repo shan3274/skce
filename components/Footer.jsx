@@ -4,9 +4,7 @@ import { motion } from "framer-motion";
 import { BackgroundBeams } from "@/utils/background-beams";
 import { Meteors } from "@/components/metoer";
 
-const Footer = ({ scrollLength, currHeight }) => {
-  console.log(scrollLength);
-  console.log(currHeight);
+const Footer = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}

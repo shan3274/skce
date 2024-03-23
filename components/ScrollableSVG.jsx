@@ -1,35 +1,38 @@
 import React, { useEffect, useMemo, useState } from "react";
 
-const ScrollableSVG = ({ count }) => {
+const ScrollableSVG = ({ count, color }) => {
   const [bgcolor, setBgcolor] = useState("#294366");
   const [scrollLength, setScrollLength] = useState();
   useMemo(() => {
     setScrollLength(0);
   }, []);
+
   useEffect(() => {
-    let newBgColor = "#294366"; // Default color
-    switch (count) {
-      case 1:
-        newBgColor = "#071169";
-        break;
-      case 2:
-        newBgColor = "#6245f5";
-        break;
-      case 3:
-        newBgColor = "#541899";
-        break;
-      case 4:
-        newBgColor = "#022745";
-        break;
-      case 5:
-      case 6:
-        newBgColor = "#a10e46";
-        break;
-      default:
-        break;
+    if (color != undefined) {
+      let newBgColor = color[0]; // Default color
+      switch (count) {
+        case 1:
+          newBgColor = color[1];
+          break;
+        case 2:
+          newBgColor = color[2];
+          break;
+        case 3:
+          newBgColor = color[3];
+          break;
+        case 4:
+          newBgColor = color[4];
+          break;
+        case 5:
+        case 6:
+          newBgColor = color[5];
+          break;
+        default:
+          break;
+      }
+      setBgcolor(newBgColor);
+      setScrollLength(135 * count);
     }
-    setBgcolor(newBgColor);
-    setScrollLength(135 * count);
   }, [count]);
   return (
     <svg

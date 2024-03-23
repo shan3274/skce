@@ -10,6 +10,7 @@ import {
 
 import Left1 from "./departments/Left1";
 import Right from "./departments/Right";
+import { getElement } from "@/utils/firebase";
 
 // Reducer function to handle state updates
 const boxesReducer = (state, action) => {
@@ -51,36 +52,25 @@ const Departments = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const colors = [
-    "#294366",
-    "#071169",
-    "#6245f5",
-    "#541899",
-    "#022745",
-    "#a10e46",
-  ];
+  const Color = getElement(
+    "colors/r1iHA62cu5KWCqgQ4fou/Departments/uSRGwOymAsQ9z7AyYnjB"
+  );
 
   useEffect(() => {
-    const newBgColor = colors[count];
+    let newBgColor = Color?.left[count];
     const newPosi = 20 + count * 100;
-    setBgColor(newBgColor);
+
     setPosi(newPosi);
     dispatch({ type: "TOGGLE", index: count });
     dispatch({ type: "REVERT", index: count === 0 ? 5 : count - 1 });
   }, [count]);
 
   const [posi, setPosi] = useState(20);
-  const [bgColor, setBgColor] = useState(colors[0]);
-  const [onMenu, setOnMenu] = useState(false);
 
   return (
     <div className="w-full h-[100vh] relative  flex items-center justify-center  rounded-3xl my-10 ">
       {/* Departments menu */}
-      <div
-        className="absolute  cursor-pointer px-5 overflow-hidden h-[40px] bg-black/50 text-white backdrop-blur-md rounded-full z-[1] top-5 flex items-center justify-around"
-        onMouseEnter={() => setOnMenu(true)}
-        onMouseLeave={() => setOnMenu(false)}
-      >
+      <div className="absolute  cursor-pointer px-5 overflow-hidden h-[40px] bg-black/50 text-white backdrop-blur-md rounded-full z-[1] top-5 flex items-center justify-around">
         {/* Position indicator */}
         <div
           className="absolute duration-300 w-[100px] h-[25px] bg-white z-[2] top-1.5 left-1 rounded-full"
@@ -102,9 +92,16 @@ const Departments = () => {
       {data.map((item, index) => (
         <React.Fragment key={index}>
           {count === index && (
-            <Left1 bgColor={bgColor} count={count} data={item} />
+            <Left1
+              bgColor={Color?.left[count]}
+              count={count}
+              data={item}
+              svgColors={Color?.left}
+            />
           )}
-          {count === index && <Right data={item} count={count} />}
+          {count === index && (
+            <Right data={item} count={count} color={Color?.right} />
+          )}
         </React.Fragment>
       ))}
     </div>

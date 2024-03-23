@@ -25,7 +25,7 @@ export const subHeader = [
     },
     {
       name: "AICTE Essentials",
-      pathName: "/about/Aicteesen",
+      pathName: "/aicteessential",
     },
   ],
   [

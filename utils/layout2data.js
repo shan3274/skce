@@ -182,7 +182,6 @@ export const civildatas = {
     {
       sno: "2",
       name: "MR.T NARESH",
-
       qualification: "MSC,M.Phil",
     },
     {

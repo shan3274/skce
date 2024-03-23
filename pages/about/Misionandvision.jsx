@@ -1,6 +1,9 @@
 import Footer from "@/components/Footer";
+import Layout2 from "@/components/Layout2";
 import Layout3 from "@/components/Layout3";
 import Nheader from "@/components/Nheader";
+import { civildata } from "@/utils/Departmentdetails";
+import { civildatas } from "@/utils/layout2data";
 import React, { useEffect, useState } from "react";
 
 const Misionandvision = () => {
@@ -22,6 +25,7 @@ const Misionandvision = () => {
     <div>
       <Nheader scrollLength={scrollLength} />
       <Layout3 data={data} />
+
       <Footer />
     </div>
   );

@@ -39,7 +39,13 @@ const Nheader = ({ scrollLength, currHeight }) => {
 
       <div className="hidden lg:block relative">
         <div className="w-full flex flex-col gap-10 items-center justify-center bg-transparent absolute top-0">
-          <div className="w-full h-[3rem]  bg-[#0A2647] z-[999] relative flex items-center justify-center text-white">
+          <div
+            className={
+              scrollLength < 10
+                ? "w-full h-[2rem]  bg-[#0A2647] z-[999] relative flex items-center justify-center text-white"
+                : "hidden"
+            }
+          >
             <div className="absolute left-5 text-[12px] flex gap-2 items-center">
               {" "}
               <p className="flex gap-1 items-center">
@@ -50,7 +56,7 @@ const Nheader = ({ scrollLength, currHeight }) => {
                 | <AiFillPhone /> 9894216849 / 9443322420
               </p>
             </div>
-            <p>Sree krishna college of engineering</p>
+            <p className="text-[13px]">Sree krishna college of engineering</p>
             <div className="absolute right-5 text-[12px] flex gap-2 items-center">
               <p className="flex gap-1 items-center">
                 <AiFillClockCircle /> COUNSELLING CODE - 1438
