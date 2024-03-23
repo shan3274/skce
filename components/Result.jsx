@@ -17,7 +17,7 @@ const Result = () => {
   const scrollTrigger = screenHeight - screenHeight / 30;
 
   return (
-    <div className="w-full min-h-[50vh] relative flex flex-col items-center justify-center bg-[#F6F9F5] gap-5 overflow-hidden">
+    <div className="w-full min-h-[55vh] relative flex flex-col items-center justify-center bg-[#F6F9F5] pb-10 gap-5 overflow-hidden">
       <div className="absolute h-full w-full  top-[-50vh] left-[-15vw]   z-[0] duration-300 ">
         <Bubble color={"#0A2647"} width={"40vw"} />
       </div>
@@ -101,7 +101,7 @@ const Result = () => {
       <motion.button
         animate={{ y: position1 < scrollTrigger ? -50 : 0 }}
         transition={{ type: "spring", stiffness: 100 }}
-        className="bg-[#0A2647] text-white w-[220px] h-[50px] relative top-[100px] mb-10"
+        className="bg-[#0A2647] text-white w-[220px] h-[50px] relative top-[100px]"
       >
         Know more
       </motion.button>
